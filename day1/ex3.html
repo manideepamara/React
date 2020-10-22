@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>localstorage</title>
+	<script type="text/javascript">
+		function saveDate(){
+			if(typeof(Storage) != "undefined"){
+				localStorage.setItem("firstName","manideep");
+				localStorage.setItem("lastName","amara");
+					
+			}
+			else{
+				alert("sorry your browser deosnot support storage");
+			}
+		}
+		function getData(){
+			if(typeof(Storage)!="undefined"){
+				var str="";
+				str+=localStorage["firstName"]+" "+localStorage["lastName"];
+				document.getElementById("name").innerHTML=str;
+				alert(str);
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="button" onclick="saveDate()" value="save Data">
+	<input type="button" onclick="getData()" value="get Data">
+	<div id="name"></div>
+</body>
+</html>

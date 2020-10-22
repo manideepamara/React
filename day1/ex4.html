@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>counter</title>
+</head>
+<body>
+	<input type="button" value="click me!" onclick="increment()">
+	<div id="id1"></div>
+	<div> Click the click me buton to increment the count </div>
+</body>
+<script>
+	function increment(){
+		if(typeof(Storage ) != "undefined"){
+			if(sessionStorage.count){
+				sessionStorage.count=Number(sessionStorage.count)+1;
+			}
+			else{
+				sessionStorage.count=1;
+			}
+
+			document.getElementById("id1").innerHTML="you have clicked "+sessionStorage.count+" time(s) !";
+		}
+		else{
+			alert("sorry the browser not supports storage");
+		}
+	}
+</script>
+</html>
