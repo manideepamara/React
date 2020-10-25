@@ -6,7 +6,7 @@
 		var dbobj = openDatabase("html","1.0","my database","2*1024*1024",onSuccessCreate());
 		dbobj.transaction(function(tx){
 				tx.executeSql('drop table employee_table');
-				tx.executeSql('create table if not exists employee_table(id unique,name,location)');
+				tx.executeSql('create table employee_table(id unique,name,location)');
 			});
 		
 		function onSuccessCreate(){

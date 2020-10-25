@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		var organisation = function(org,loc,to){
+			this.org=org;
+			this.loc=loc;
+			this.to=to;
+			this.displayDetails=function(){
+				return "<tr><td>"+this.org+"</td><td>"+this.loc+"</td><td>"+this.to+"</td></tr>";
+			}
+		}
+		var records=[];
+		function save(){
+			var org=document.getElementById("org").value;
+			var loc=document.getElementById("loc").value;
+			var to=document.getElementById("to").value;
+			records.push(new organisation(org,loc,to));
+			document.getElementById("org").value="";
+			document.getElementById("loc").value="";
+			document.getElementById("to").value="";
+				
+		}
+		function display(){
+			for(var i=0;i<records.length;i++){
+				document.getElementById("tb").innerHTML+=records[i].displayDetails();
+			}
+		}
+	</script>
+	
+</head>
+<body>
+	Enter your organisation Name:<input type="text" id="org"><br>
+	Enter your location :<input type="text" id="loc"><br>
+	Enter your turnover :<input type="text" id="to"><br>
+	<input type="button" value="Save" onClick="save()">
+	<input type="button" value="Display"onClick="display()">
+	<table id="tb"></table>
+</body>
+</html>

@@ -1,0 +1,16 @@
+%message-shared {
+	background-color:red;
+}
+
+.message {
+	@extend %message-shared;
+	color:blue;
+}
+
+@function adjust_width($n){
+	@return $n*10+1px;
+}
+
+#setwidth {
+	font-size:adjust_width(10);
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		var records=[]
+		var employee = function(id,name,salary,joindate){
+			this.id=id;
+			this.name=name;
+			this.salary=salary;
+			this.joindate=joindate;
+			this.showDetails=function(){
+				return "<tr><td>"+this.id+"</td><td>"+this.name+"</td><td>"+this.salary+"</td><td>"+this.joindate+"</td></tr>";
+			}
+		}
+		function insert(){
+			var id=document.getElementById("id").value;
+			var name=document.getElementById("name").value;
+			var salary=document.getElementById("sal").value;
+			var jd=document.getElementById("jd").value;
+			var emp=new employee(id,name,salary,jd);
+			records.push(emp);
+			document.getElementById("id").value="";
+			document.getElementById("name").value="";
+			document.getElementById("sal").value="";
+			document.getElementById("jd").value="";
+		}
+		function modify(){
+			var name = document.getElementById("nameM").value;
+			for(var i=0;i<records.length;i++){
+				var val = records[i].name.startsWith(name);
+				if(val==true){
+					records[i].salary=parseInt(records[i].salary)+1000;
+				}
+			}
+			document.getElementById("nameM").value="";
+		}
+		function print(){
+			var str='';
+			for(var i=0;i<records.length;i++){
+				str+=records[i].showDetails();
+			}
+			document.getElementById("tb").innerHTML=str;
+
+		}
+		function printAvg(){
+			var avg=0;
+			for(var i=0;i<records.length;i++){
+				avg+=parseInt(records[i].salary);
+			}
+			avg/=records.length;
+			var str='';
+			for(var i=0;i<records.length;i++){
+				if(parseInt(records[i].salary)>=avg)
+				str+=records[i].showDetails();
+			}
+			document.getElementById("tb").innerHTML=str;
+		}
+		function search(){
+			var str='';
+			var id = document.getElementById("seid").value;
+			for(var i=0;i<records.length;i++){
+				var vid=records[i].id;
+				if(id==vid){
+					str+=records[i].showDetails();
+				}
+			}
+			document.getElementById("tb").innerHTML=str;
+			document.getElementById("seid").value="";
+		}
+	</script>
+</head>
+<body>
+	enter your id:<input type="text" id="id"><br>
+	enter your name:<input type="text" id="name"><br>
+	enter your salary:<input type="text" id="sal"><br>
+	enter your joiningdate:<input type="text" id="jd" name=""><br>
+	<input type="button" value="insert" onClick="insert()"><br>
+	enter empid to search<input type="text" id="seid"> <input type="button" value="search" onClick="search()">
+	modify salary details startswith<input type="text" id="nameM"><input type="button" value="modify" onClick="modify()">
+	<input type="button" value="display" onClick="print()">
+	<input type="button" value="displayAvg" onClick="printAvg()">
+	<table id="tb"></table>
+</body>
+</html>

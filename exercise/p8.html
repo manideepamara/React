@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Counter Example</title>
+	<script type="text/javascript">
+		var value=0;
+		var inc=0;
+		setInterval(counter,1000);
+		function counter(){
+			value+=inc;
+			document.getElementById("c").innerHTML=value;
+		}
+		function start(){
+			
+			inc=1;
+		}
+		function stop(){
+			value=0;
+			inc=0;
+		}
+		function pause(){
+			inc=0;
+		}
+	</script>
+</head>
+<body>
+	<input type="button" onClick="start()" value="start">
+	<input type="button" onClick="stop()" value="stop">
+	<input type="button" onClick="pause()" value="pause">
+	<div id="c"></div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		function getAge(){
+			var val=document.getElementById("dob").value;
+			//document.getElementById("res").innerHTML=val;
+			var res = new Date(val);
+			res=(Math.abs(res.getTime()-new Date().getTime()));
+			res=res/(365.25*24*60*60*1000);
+			res=Math.floor(res);
+			document.getElementById("res").innerHTML="your age is "+res+" year(s)";
+		}
+		
+	</script>
+</head>
+<body>
+
+<!-- 1] AGE Calculator
+
+WAP to accept two values from text box -> convert to date format and print the difference between two dates
+ -->	Enter your dob <input type="date" id="dob">
+	<input type="button" value="get age" onclick="getAge()">
+	<div id="res"></div>
+</body>
+</html>

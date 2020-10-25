@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		function getData(){
+			var name= document.getElementById("name").value;
+			var email= document.getElementById("email").value;
+			var age= document.getElementById("age").value;
+			var sex= document.getElementById("sex").value;
+			var pn= document.getElementById("pn").value;
+			var str='';
+			str+="<tr><td>Name:</td><td>"+name+"</td></tr>";
+			str+="<tr><td>Email:</td><td>"+email+"</td></tr>";
+			str+="<tr><td>Age:</td><td>"+age+"</td></tr>";
+			str+="<tr><td>Sex:</td><td>"+sex+"</td></tr>";
+			str+="<tr><td>phonenumber:</td><td>"+pn+"</td></tr>";
+			document.getElementById("tbgrid").innerHTML=str;
+		}
+	</script>
+</head>
+<body>
+	enter your name:<input type="text" id="name"><br>
+	enter your email:<input type="text" id="email"><br>
+	enter your age:<input type="text" id="age"><br>
+	enter your sex:<input type="text" id="sex"><br>
+	enter your phonenumber:<input type="text" id="pn"><br>
+	<input type="button" value="sigin" onclick="getData()">
+	<table border="1px" id="tbgrid">
+		<thead>
+	</table>
+</body>
+</html>

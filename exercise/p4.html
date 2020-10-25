@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		function mark(){
+			var val=document.getElementById("val").value;
+			var p= document.getElementById("p1").innerHTML;
+			p=p.replace("<mark>","");
+			p=p.replace("</mark>","");
+			p=p.replace(val,"<mark>"+val+"</mark>");
+			document.getElementById("p1").innerHTML=p;
+		}
+	</script>
+</head>
+<body>
+	<input type="text" id="val" oninput ="mark()">
+	<div id="res"></div>
+	<p id="p1">
+		1] AGE Calculator
+
+WAP to accept two values from text box -> convert to date format and print the difference between two dates
+
+NOTE:- check validation first value should be less than second value
+
+2] display digital clock on screen
+
+3] Hide and seek game
+
+4] WAC Organization with orgName,location,turnOver
+acceptOranizationDetails
+displayOranizationDetails
+
+5] Search operation with marking in Yellow below searching word
+
+6] Create array of Employees with details empId,name,salary,joiningDate,
+   features push,pop,display in table format all records
+   search particular Employee using empId
+   Modify Employee Details with salary increment by 1000 whoes name starts 			with 'A' letter
+   count total records
+   print ascending order of records using names
+   print Employee records whoes salary is above aver
+</p>
+</body>
+</html>

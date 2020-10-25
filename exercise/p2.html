@@ -1,0 +1,23 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Digital Clock</title>
+	
+</head>
+<body>
+	<div id="myTime"></div>
+</body>
+<script type="text/javascript">
+		setInterval(showTime,1000);
+		function showTime(){
+			var d= new Date();
+			str='';
+			str+=d.getHours()+":";
+			str+=d.getMinutes()+":";
+			str+=d.getSeconds();
+			document.getElementById("myTime").innerHTML=str;
+		}
+		showTime();
+	</script>
+</html>

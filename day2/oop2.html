@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+
+		function Employee(empid,name,salary){
+			this.empId=empid;
+			this.name=name;
+			this.salary=salary;
+			this.showDetails=function(){
+				return "details are "+this.empId+" "+this.name+" "+this.salary ;
+			}
+		}
+		
+		var records=[];
+		function saveRecord(){
+			var empid=document.getElementById("empid").value;
+			var name=document.getElementById("name").value;
+			var salary=document.getElementById("sal").value;
+			var emp = new Employee(empid,name,salary);
+			records.push(emp);	
+		}
+		function getRecords(){
+			for(i=0;i<records.length;i++){
+				var record=records[i].showDetails();
+				alert(record);
+			}
+		}
+
+	</script>
+</head>
+<body>
+	empid:<input type="text"id="empid"><br>
+	name:<input type="text"id="name"><br>
+	salary:<input type="text"id="sal"><br>
+	<input type="button" onClick="saveRecord()" value="save"><br>	
+	<input type="button" onClick="getRecords()" value="get"><br>
+	
+
+	
+</body>
+</html>

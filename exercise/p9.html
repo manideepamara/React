@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		function signup(){
+			var name=document.getElementById("name").value;
+			var age=document.getElementById("age").value;
+			var sex=document.getElementById("sex").value;
+			var phone=document.getElementById("ph").value;
+			var loc=document.getElementById("loc").value;
+			var str="";
+			str+="<tr><td>Name</td><td>"+name+"</td></tr>";
+			str+="<tr><td>Age</td><td>"+age+"</td></tr>";
+			str+="<tr><td>sex</td><td>"+sex+"</td></tr>";
+			str+="<tr><td>Contact</td><td>"+phone+"</td></tr>";
+			str+="<tr><td>location</td><td>"+loc+"</td></tr>";
+			document.getElementById("tb").innerHTML=str;
+			}
+	</script>
+</head>
+<body>
+Name:<input type="text" id="name"><br>
+Age:<input type="text" id="age" ><br>
+sex:<input type="text" id="sex"><br>
+phone:<input type="text" id="ph"><br>
+location:<input type="text" id="loc"><br>
+<input type="button" value="signup" onClick="signup()">
+<table id="tb"></table>
+</body>
+</html>

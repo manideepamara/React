@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		function create(){
+			var row=document.getElementById("row").value;
+			var col=document.getElementById("col").value;
+			row=parseInt(row);
+			col=parseInt(col);
+			var str='';
+			for(var i=0;i<row;i++)	{
+				str+="<tr>";
+				for(var j=0;j<col;j++){
+					str+="<td>"+i+j+"</td>";
+			 	}
+				str+="</tr>"
+			}
+			document.getElementById("tb").innerHTML=str;
+		}
+	</script>
+</head>
+<body>
+	row<input type="text" id="row" value="1" onInput="create()"> col<input type="text" id="col" value="1" onInput="create()">
+	<table border="1" id="tb"></table>
+</body>
+</html>
