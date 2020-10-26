@@ -1,0 +1,15 @@
+
+{
+  "name": "my_app_70363",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "run"
+  },
+  "author": "manideep",
+  "license": "MIT",
+  "dependencies": {
+    "my_app_test123": "^1.0.0"
+  }
+}
