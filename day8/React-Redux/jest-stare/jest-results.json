@@ -1,0 +1,304 @@
+{
+  "numFailedTestSuites": 2,
+  "numFailedTests": 1,
+  "numPassedTestSuites": 0,
+  "numPassedTests": 0,
+  "numPendingTestSuites": 0,
+  "numPendingTests": 0,
+  "numRuntimeErrorTestSuites": 1,
+  "numTodoTests": 0,
+  "numTotalTestSuites": 2,
+  "numTotalTests": 1,
+  "openHandles": [],
+  "snapshot": {
+    "added": 0,
+    "didUpdate": false,
+    "failure": false,
+    "filesAdded": 0,
+    "filesRemoved": 0,
+    "filesRemovedList": [],
+    "filesUnmatched": 0,
+    "filesUpdated": 0,
+    "matched": 0,
+    "total": 0,
+    "unchecked": 0,
+    "uncheckedKeysByFile": [],
+    "unmatched": 0,
+    "updated": 0
+  },
+  "startTime": 1604484141071,
+  "success": false,
+  "testResults": [
+    {
+      "failureMessage": "  \u001b[1m● \u001b[22mTest suite failed to run\n\n    Your test suite must contain at least one test.\n\n      \u001b[2mat onResult (\u001b[22mnode_modules/@jest/core/build/TestScheduler.js\u001b[2m:175:18)\u001b[22m\n      \u001b[2mat \u001b[22mnode_modules/@jest/core/build/TestScheduler.js\u001b[2m:304:17\u001b[22m\n      \u001b[2mat \u001b[22mnode_modules/emittery/index.js\u001b[2m:260:13\u001b[22m\n          at Array.map (<anonymous>)\n      \u001b[2mat Emittery.Typed.emit (\u001b[22mnode_modules/emittery/index.js\u001b[2m:258:23)\u001b[22m\n",
+      "leaks": false,
+      "numFailingTests": 0,
+      "numPassingTests": 0,
+      "numPendingTests": 0,
+      "numTodoTests": 0,
+      "openHandles": [],
+      "perfStats": {
+        "end": 0,
+        "runtime": 0,
+        "slow": false,
+        "start": 0
+      },
+      "skipped": false,
+      "snapshot": {
+        "added": 0,
+        "fileDeleted": false,
+        "matched": 0,
+        "unchecked": 0,
+        "uncheckedKeys": [],
+        "unmatched": 0,
+        "updated": 0
+      },
+      "testExecError": {
+        "message": "Your test suite must contain at least one test.",
+        "stack": "Error: Your test suite must contain at least one test.\n    at onResult (C:\\Users\\user280\\Desktop\\React.git\\day8\\React-Redux\\node_modules\\@jest\\core\\build\\TestScheduler.js:175:18)\n    at C:\\Users\\user280\\Desktop\\React.git\\day8\\React-Redux\\node_modules\\@jest\\core\\build\\TestScheduler.js:304:17\n    at C:\\Users\\user280\\Desktop\\React.git\\day8\\React-Redux\\node_modules\\emittery\\index.js:260:13\n    at Array.map (<anonymous>)\n    at Emittery.Typed.emit (C:\\Users\\user280\\Desktop\\React.git\\day8\\React-Redux\\node_modules\\emittery\\index.js:258:23)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+      },
+      "testFilePath": "C:\\Users\\user280\\Desktop\\React.git\\day8\\React-Redux\\__test__\\test.js",
+      "testResults": []
+    },
+    {
+      "leaks": false,
+      "numFailingTests": 1,
+      "numPassingTests": 0,
+      "numPendingTests": 0,
+      "numTodoTests": 0,
+      "openHandles": [],
+      "perfStats": {
+        "end": 1604484158228,
+        "runtime": 10438,
+        "slow": true,
+        "start": 1604484147790
+      },
+      "skipped": false,
+      "snapshot": {
+        "added": 0,
+        "fileDeleted": false,
+        "matched": 0,
+        "unchecked": 0,
+        "unmatched": 0,
+        "updated": 0,
+        "uncheckedKeys": []
+      },
+      "testFilePath": "C:\\Users\\user280\\Desktop\\React.git\\day8\\React-Redux\\__test__\\List.test.js",
+      "testResults": [
+        {
+          "ancestorTitles": [
+            "testing list .js"
+          ],
+          "duration": 0,
+          "failureDetails": [
+            {
+              "actual": "",
+              "error": {},
+              "expected": "",
+              "matcherName": "",
+              "message": "TypeError: Cannot read property 'createElement' of undefined",
+              "passed": false,
+              "stack": "TypeError: Cannot read property 'createElement' of undefined\n    at Object.<anonymous> (C:\\Users\\user280\\Desktop\\React.git\\day8\\React-Redux\\__test__\\List.test.js:10:33)\n    at Object.asyncJestTest (C:\\Users\\user280\\Desktop\\React.git\\day8\\React-Redux\\node_modules\\jest-jasmine2\\build\\jasmineAsyncInstall.js:106:37)\n    at C:\\Users\\user280\\Desktop\\React.git\\day8\\React-Redux\\node_modules\\jest-jasmine2\\build\\queueRunner.js:45:12\n    at new Promise (<anonymous>)\n    at mapper (C:\\Users\\user280\\Desktop\\React.git\\day8\\React-Redux\\node_modules\\jest-jasmine2\\build\\queueRunner.js:28:19)\n    at C:\\Users\\user280\\Desktop\\React.git\\day8\\React-Redux\\node_modules\\jest-jasmine2\\build\\queueRunner.js:75:41\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+            }
+          ],
+          "failureMessages": [
+            "TypeError: Cannot read property 'createElement' of undefined\n    at Object.<anonymous> (C:\\Users\\user280\\Desktop\\React.git\\day8\\React-Redux\\__test__\\List.test.js:10:33)\n    at Object.asyncJestTest (C:\\Users\\user280\\Desktop\\React.git\\day8\\React-Redux\\node_modules\\jest-jasmine2\\build\\jasmineAsyncInstall.js:106:37)\n    at C:\\Users\\user280\\Desktop\\React.git\\day8\\React-Redux\\node_modules\\jest-jasmine2\\build\\queueRunner.js:45:12\n    at new Promise (<anonymous>)\n    at mapper (C:\\Users\\user280\\Desktop\\React.git\\day8\\React-Redux\\node_modules\\jest-jasmine2\\build\\queueRunner.js:28:19)\n    at C:\\Users\\user280\\Desktop\\React.git\\day8\\React-Redux\\node_modules\\jest-jasmine2\\build\\queueRunner.js:75:41\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+          ],
+          "fullName": "testing list .js renders list-item",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "failed",
+          "title": "renders list-item"
+        }
+      ],
+      "failureMessage": "\u001b[1m\u001b[31m  \u001b[1m● \u001b[22m\u001b[1mtesting list .js › renders list-item\u001b[39m\u001b[22m\n\n    TypeError: Cannot read property 'createElement' of undefined\n\u001b[2m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m  8 | \u001b[39m    it(\u001b[32m'renders list-item'\u001b[39m\u001b[33m,\u001b[39m()\u001b[33m=>\u001b[39m{\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m  9 | \u001b[39m        \u001b[36mconst\u001b[39m items\u001b[33m=\u001b[39m[\u001b[32m'one'\u001b[39m\u001b[33m,\u001b[39m\u001b[32m'two'\u001b[39m\u001b[33m,\u001b[39m\u001b[32m'three'\u001b[39m]\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[2m\u001b[39m\u001b[90m 10 | \u001b[39m        \u001b[36mconst\u001b[39m wrapper \u001b[33m=\u001b[39m shallow(\u001b[33m<\u001b[39m\u001b[33mList\u001b[39m items\u001b[33m=\u001b[39m{items} \u001b[33m/\u001b[39m\u001b[33m>\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m    | \u001b[39m                                \u001b[31m\u001b[1m^\u001b[22m\u001b[2m\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m 11 | \u001b[39m        expect(wrapper\u001b[33m.\u001b[39mfind(\u001b[32m'list-item'\u001b[39m))\u001b[33m.\u001b[39mtoBeDefined()\u001b[33m;\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m 12 | \u001b[39m        \u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m 13 | \u001b[39m    })\u001b[0m\u001b[22m\n\u001b[2m\u001b[22m\n\u001b[2m      \u001b[2mat Object.<anonymous> (\u001b[22m\u001b[2m\u001b[0m\u001b[36m__test__/List.test.js\u001b[39m\u001b[0m\u001b[2m:10:33)\u001b[22m\u001b[2m\u001b[22m\n"
+    }
+  ],
+  "wasInterrupted": false,
+  "coverageMap": {
+    "C:\\Users\\user280\\Desktop\\React.git\\day8\\React-Redux\\components\\List.js": {
+      "path": "C:\\Users\\user280\\Desktop\\React.git\\day8\\React-Redux\\components\\List.js",
+      "statementMap": {
+        "0": {
+          "start": {
+            "line": 1,
+            "column": 25
+          },
+          "end": {
+            "line": 1,
+            "column": 41
+          }
+        },
+        "1": {
+          "start": {
+            "line": 5,
+            "column": 22
+          },
+          "end": {
+            "line": 5,
+            "column": 27
+          }
+        },
+        "2": {
+          "start": {
+            "line": 6,
+            "column": 4
+          },
+          "end": {
+            "line": 8,
+            "column": 5
+          }
+        },
+        "3": {
+          "start": {
+            "line": 7,
+            "column": 8
+          },
+          "end": {
+            "line": 7,
+            "column": 76
+          }
+        },
+        "4": {
+          "start": {
+            "line": 10,
+            "column": 4
+          },
+          "end": {
+            "line": 14,
+            "column": 5
+          }
+        },
+        "5": {
+          "start": {
+            "line": 12,
+            "column": 29
+          },
+          "end": {
+            "line": 12,
+            "column": 72
+          }
+        },
+        "6": {
+          "start": {
+            "line": 21,
+            "column": 0
+          },
+          "end": {
+            "line": 21,
+            "column": 20
+          }
+        }
+      },
+      "fnMap": {
+        "0": {
+          "name": "List",
+          "decl": {
+            "start": {
+              "line": 4,
+              "column": 9
+            },
+            "end": {
+              "line": 4,
+              "column": 13
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 4,
+              "column": 21
+            },
+            "end": {
+              "line": 15,
+              "column": 1
+            }
+          },
+          "line": 4
+        },
+        "1": {
+          "name": "(anonymous_1)",
+          "decl": {
+            "start": {
+              "line": 12,
+              "column": 23
+            },
+            "end": {
+              "line": 12,
+              "column": 24
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 12,
+              "column": 29
+            },
+            "end": {
+              "line": 12,
+              "column": 72
+            }
+          },
+          "line": 12
+        }
+      },
+      "branchMap": {
+        "0": {
+          "loc": {
+            "start": {
+              "line": 6,
+              "column": 4
+            },
+            "end": {
+              "line": 8,
+              "column": 5
+            }
+          },
+          "type": "if",
+          "locations": [
+            {
+              "start": {
+                "line": 6,
+                "column": 4
+              },
+              "end": {
+                "line": 8,
+                "column": 5
+              }
+            },
+            {
+              "start": {
+                "line": 6,
+                "column": 4
+              },
+              "end": {
+                "line": 8,
+                "column": 5
+              }
+            }
+          ],
+          "line": 6
+        }
+      },
+      "s": {
+        "0": 1,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 1
+      },
+      "f": {
+        "0": 0,
+        "1": 0
+      },
+      "b": {
+        "0": [
+          0,
+          0
+        ]
+      },
+      "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+      "hash": "dbf16862e72f3f28750b403a50cf22ca99f70018"
+    }
+  }
+}

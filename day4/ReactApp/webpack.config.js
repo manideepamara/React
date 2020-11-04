@@ -9,7 +9,7 @@ var config = {
 
     devServer: {
         inline:true,
-        port:3030
+        port:3031
     },
 
 
@@ -22,7 +22,17 @@ var config = {
             query:{
                 presets:['es2015','react']
             }
-         }],
+         },
+         {
+            test:/\.s[cs]ss$/i,
+            use: ['style-loader', 'css-loader', 'sass-loader']
+         },
+         {
+            test: /\.json5$/i,
+            
+            loader: 'json5-loader',
+        } 
+        ],
     }
 }
 module.exports = config;

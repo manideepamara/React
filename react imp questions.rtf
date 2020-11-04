@@ -1,0 +1,284 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil Calibri;}}
+{\*\generator Riched20 10.0.15063}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\f0\fs22\lang9 1   What is React?\par
+a)  React is an open-source JavaScript library that is used for building user interfaces specifically for single-page applications. It's used for handling the view layer for web and mobile apps. React also allows us to create reusable UI components.\par
+2\tab What are the major features of React?\par
+    Virtual Dom,JSX,Component,one way data binding\par
+3\tab What is JSX?\par
+    Java script XML allow us to write html elements in react\par
+4\tab What is the difference between Element and Component?\par
+    element is related to html whereas component is related to React\par
+    element starts with small letter components start with Capital letter\par
+5\tab How to create components in React?\par
+    by extending Component in 'react'\par
+6\tab When to use a Class Component over a Function Component?\par
+    for using component life cycle methods we prefer class component\par
+7\tab What are Pure Components?\par
+    these are return based on argument and behaviour is same \par
+8\tab What is state in React?\par
+    permanant storage for a component\par
+9\tab What are props in React?\par
+    props are temporray storage used for data propagation from parent component to     child xomponent\par
+10\tab What is the difference between state and props?\par
+    states are mutable whereas props are immutable\par
+\par
+11\tab Why should we not update the state directly?\par
+    which leads to hard the optimize\par
+12\tab What is the purpose of callback function as an argument of setState()?\par
+\par
+    to perform an action such as Ajax request or throw an error\par
+13\tab What is the difference between HTML and React event handling?\par
+    event names are lower case in html where as camel case in react\par
+    \par
+    return false to prevent default behaviour in react preventDefault() is called\par
+14\tab How to bind methods or event handlers in JSX callbacks?\par
+\par
+    this.function = this.function.bind(this);\par
+15\tab How to pass a parameter to an event handler or callback?\par
+    let us assume event handler for button \par
+    <button onClick=\{()=>\{function(parametr)\}\}>name</button>\par
+    \par
+    \par
+16\tab What are synthetic events in React?\par
+    wrapping the actual events using js wrapper\par
+17\tab What are inline conditional expressions?\par
+    it is  the ternary operator where we can check condition in single line\par
+18\tab What is "key" prop and what is the benefit of using it in arrays of elements?\par
+    keys are used to identify the items in alist\par
+19\tab What is the use of refs?\par
+    refs provide a way to access DOM nodes or React elements created inside the         component\par
+20\tab How to create refs?\par
+    using React.createRef()\par
+21\tab What are forward refs?\par
+\tab Ref forwarding is a feature that lets some components take a ref they receive, and \tab pass it further down to a child\par
+const ButtonElement = React.forwardRef((props, ref) => (\par
+  <button ref=\{ref\} className="CustomButton">\par
+    \{props.children\}\par
+  </button>\par
+));\par
+\par
+// Create ref to the DOM button:\par
+const ref = React.createRef();\par
+<ButtonElement ref=\{ref\}>\{'Forward Ref'\}</ButtonElemen\par
+22\tab Which is preferred option with in callback refs and findDOMNode()?\tab\par
+\tab it is prefffered to use call back refs than findDOM because findDOMNode() prevents certain improvements in react future\par
+23\tab Why are String Refs legacy?\par
+\tab If you worked with React before, you might be familiar with an older API where the ref attribute is a string, like ref=\{'textInput'\}, and the DOM node is accessed as this.refs.textInput. We advise against it because string refs have below issues, and are considered legacy. String refs were removed in React v16.\par
+\par
+They force React to keep track of currently executing component. This is problematic because it makes react module stateful, and thus causes weird errors when react module is duplicated in the bundle.\par
+They are not composable \f1\emdash  if a library puts a ref on the passed child, the user can't put another ref on it. Callback refs are perfectly composable.\par
+They don't work with static analysis like Flow. Flow can't guess the magic that framework does to make the string ref appear on this.refs, as well as its type (which could be different). Callback refs are friendlier to static analysis.\par
+It doesn't work as most people would expect with the "render callback\f0\par
+24\tab What is Virtual DOM?\par
+\tab The Virtual DOM (VDOM) is an in-memory representation of Real DOM. The representation of a UI is kept in memory and synced with the "real" DOM. It's a step that happens between the render function being called and the displaying of elements on the screen. This entire process is called reconciliation.\par
+25\tab How Virtual DOM works?\par
+The Virtual DOM works in three simple steps.\par
+\par
+Whenever any underlying data changes, the entire UI is re-rendered in Virtual DOM representation.\par
+\par
+vdom\par
+\par
+Then the difference between the previous DOM representation and the new one is calculated.\par
+\par
+vdom2\par
+\par
+Once the calculations are done, the real DOM will be updated with only the things that have actually changed.\par
+\par
+26\tab What is the difference between Shadow DOM and Virtual DOM?\par
+\tab The Shadow DOM is a browser technology designed primarily for scoping variables and CSS in web components. The Virtual DOM is a concept implemented by libraries in JavaScript on top of browser APIs.\par
+27\tab What is React Fiber?\par
+\tab Fiber is the new reconciliation engine or reimplementation of core algorithm in React v16. The goal of React Fiber is to increase its suitability for areas like animation, layout, gestures, ability to pause, abort, or reuse work and assign priority to different types of updates; and new concurrency primitives\par
+28\tab What is the main goal of React Fiber?\par
+The goal of React Fiber is to increase its suitability for areas like animation, layout, and gestures. Its headline feature is incremental rendering: the ability to split rendering work into chunks and spread it out over multiple frames.\par
+29\tab What are controlled components?\par
+A component that controls the input elements within the forms on subsequent user input is called Controlled Component, i.e, every state mutation will have an associated handler function\par
+30\tab What are uncontrolled components?\par
+The Uncontrolled Components are the ones that store their own state internally, and you query the DOM using a ref to find its current value when you need it. This is a bit more like traditional HTML.\par
+\par
+31\tab What is the difference between createElement and cloneElement?\par
+32\tab What is Lifting State Up in React?\par
+33\tab What are the different phases of component lifecycle?\par
+34\tab What are the lifecycle methods of React?\par
+35\tab What are Higher-Order components?\par
+36\tab How to create props proxy for HOC component?\par
+37\tab What is context?\par
+38\tab What is children prop?\par
+39\tab How to write comments in React?\par
+40\tab What is the purpose of using super constructor with props argument?\par
+41\tab What is reconciliation?\par
+42\tab How to set state with a dynamic key name?\par
+43\tab What would be the common mistake of function being called every time the component renders?\par
+44\tab Is lazy function supports named exports?\par
+45\tab Why React uses className over class attribute?\par
+46\tab What are fragments?\par
+47\tab Why fragments are better than container divs?\par
+48\tab What are portals in React?\par
+49\tab What are stateless components?\par
+50\tab What are stateful components?\par
+51\tab How to apply validation on props in React?\par
+52\tab What are the advantages of React?\par
+53\tab What are the limitations of React?\par
+54\tab What are error boundaries in React v16\par
+55\tab How error boundaries handled in React v15?\par
+56\tab What are the recommended ways for static type checking?\par
+57\tab What is the use of react-dom package?\par
+58\tab What is the purpose of render method of react-dom?\par
+59\tab What is ReactDOMServer?\par
+60\tab How to use InnerHtml in React?\par
+61\tab How to use styles in React?\par
+62\tab How events are different in React?\par
+63\tab What will happen if you use setState in constructor?\par
+64\tab What is the impact of indexes as keys?\par
+65\tab Is it good to use setState() in componentWillMount() method?\par
+66\tab What will happen if you use props in initial state?\par
+67\tab How do you conditionally render components?\par
+68\tab Why we need to be careful when spreading props on DOM elements??\par
+69\tab How you use decorators in React?\par
+70\tab How do you memoize a component?\par
+71\tab How you implement Server-Side Rendering or SSR?\par
+72\tab How to enable production mode in React?\par
+73\tab What is CRA and its benefits?\par
+74\tab What is the lifecycle methods order in mounting?\par
+75\tab What are the lifecycle methods going to be deprecated in React v16?\par
+76\tab What is the purpose of getDerivedStateFromProps() lifecycle method?\par
+77\tab What is the purpose of getSnapshotBeforeUpdate() lifecycle method?\par
+78\tab Do Hooks replace render props and higher order components?\par
+79\tab What is the recommended way for naming components?\par
+80\tab What is the recommended ordering of methods in component class?\par
+81\tab What is a switching component?\par
+82\tab Why we need to pass a function to setState()?\par
+83\tab What is strict mode in React?\par
+84\tab What are React Mixins?\par
+85\tab Why is isMounted() an anti-pattern and what is the proper solution?\par
+86\tab What are the Pointer Events supported in React?\par
+87\tab Why should component names start with capital letter?\par
+88\tab Are custom DOM attributes supported in React v16?\par
+89\tab What is the difference between constructor and getInitialState?\par
+90\tab Can you force a component to re-render without calling setState?\par
+91\tab What is the difference between super() and super(props) in React using ES6 classes?\par
+92\tab How to loop inside JSX?\par
+93\tab How do you access props in attribute quotes?\par
+94\tab What is React PropType array with shape?\par
+95\tab How to conditionally apply class attributes?\par
+96\tab What is the difference between React and ReactDOM?\par
+97\tab Why ReactDOM is separated from React?\par
+98\tab How to use React label element?\par
+99\tab How to combine multiple inline style objects?\par
+100\tab How to re-render the view when the browser is resized?\par
+101\tab What is the difference between setState and replaceState methods?\par
+102\tab How to listen to state changes?\par
+103\tab What is the recommended approach of removing an array element in react state?\par
+104\tab Is it possible to use React without rendering HTML?\par
+105\tab How to pretty print JSON with React?\par
+106\tab Why you can't update props in React?\par
+107\tab How to focus an input element on page load?\par
+108\tab What are the possible ways of updating objects in state?\par
+110\tab How can we find the version of React at runtime in the browser?\par
+111\tab What are the approaches to include polyfills in your create-react-app?\par
+112\tab How to use https instead of http in create-react-app?\par
+113\tab How to avoid using relative path imports in create-react-app?\par
+114\tab How to add Google Analytics for react-router?\par
+115\tab How to update a component every second?\par
+116\tab How do you apply vendor prefixes to inline styles in React?\par
+117\tab How to import and export components using react and ES6?\par
+118\tab What are the exceptions on React component naming?\par
+119\tab Why is a component constructor called only once?\par
+120\tab How to define constants in React?\par
+121\tab How to programmatically trigger click event in React?\par
+122\tab Is it possible to use async/await in plain React?\par
+123\tab What are the common folder structures for React?\par
+124\tab What are the popular packages for animation?\par
+125\tab What is the benefit of styles modules?\par
+126\tab What are the popular React-specific linters?\par
+127\tab How to make AJAX call and In which component lifecycle methods should I make an AJAX call?\par
+128\tab What are render props?\par
+React Router\par
+129\tab What is React Router?\par
+130\tab How React Router is different from history library?\par
+131\tab What are the <Router> components of React Router v4?\par
+132\tab What is the purpose of push and replace methods of history?\par
+133\tab How do you programmatically navigate using React router v4?\par
+134\tab How to get query parameters in React Router v4\par
+135\tab Why you get "Router may have only one child element" warning?\par
+136\tab How to pass params to history.push method in React Router v4?\par
+137\tab How to implement default or NotFound page?\par
+138\tab How to get history on React Router v4?\par
+139\tab How to perform automatic redirect after login?\par
+React Internationalization\par
+140\tab What is React-Intl?\par
+141\tab What are the main features of React Intl?\par
+142\tab What are the two ways of formatting in React Intl?\par
+143\tab How to use FormattedMessage as placeholder using React Intl?\par
+144\tab How to access current locale with React Intl\par
+145\tab How to format date using React Intl?\par
+React Testing\par
+146\tab What is Shallow Renderer in React testing?\par
+147\tab What is TestRenderer package in React?\par
+148\tab What is the purpose of ReactTestUtils package?\par
+149\tab What is Jest?\par
+150\tab What are the advantages of Jest over Jasmine?\par
+151\tab Give a simple example of Jest test case\par
+React Redux\par
+152\tab What is Flux?\par
+153\tab What is Redux?\par
+154\tab What are the core principles of Redux?\par
+155\tab What are the downsides of Redux compared to Flux?\par
+156\tab What is the difference between mapStateToProps() and mapDispatchToProps()?\par
+157\tab Can I dispatch an action in reducer?\par
+158\tab How to access Redux store outside a component?\par
+159\tab What are the drawbacks of MVW pattern\par
+160\tab Are there any similarities between Redux and RxJS?\par
+161\tab How to dispatch an action on load?\par
+162\tab How to use connect from React Redux?\par
+163\tab How to reset state in Redux?\par
+164\tab Whats the purpose of at symbol in the redux connect decorator?\par
+165\tab What is the difference between React context and React Redux?\par
+166\tab Why are Redux state functions called reducers?\par
+167\tab How to make AJAX request in Redux?\par
+168\tab Should I keep all component's state in Redux store?\par
+169\tab What is the proper way to access Redux store?\par
+170\tab What is the difference between component and container in React Redux?\par
+171\tab What is the purpose of the constants in Redux?\par
+172\tab What are the different ways to write mapDispatchToProps()?\par
+173\tab What is the use of the ownProps parameter in mapStateToProps() and mapDispatchToProps()?\par
+174\tab How to structure Redux top level directories?\par
+175\tab What is redux-saga?\par
+176\tab What is the mental model of redux-saga?\par
+177\tab What are the differences between call and put in redux-saga\par
+178\tab What is Redux Thunk?\par
+179\tab What are the differences between redux-saga and redux-thunk\par
+180\tab What is Redux DevTools?\par
+181\tab What are the features of Redux DevTools?\par
+182\tab What are Redux selectors and Why to use them?\par
+183\tab What is Redux Form?\par
+184\tab What are the main features of Redux Form?\par
+185\tab How to add multiple middlewares to Redux?\par
+186\tab How to set initial state in Redux?\par
+187\tab How Relay is different from Redux?\par
+188\tab What is an action in Redux?\par
+React Native\par
+188\tab What is the difference between React Native and React?\par
+189\tab How to test React Native apps?\par
+190\tab How to do logging in React Native?\par
+191\tab How to debug your React Native?\par
+React supported libraries and Integration\par
+192\tab What is reselect and how it works?\par
+193\tab What is Flow?\par
+194\tab What is the difference between Flow and PropTypes?\par
+195\tab How to use font-awesome icons in React?\par
+196\tab What is React Dev Tools?\par
+197\tab Why is DevTools not loading in Chrome for local files?\par
+198\tab How to use Polymer in React?\par
+199\tab What are the advantages of React over Vue.js?\par
+200\tab What is the difference between React and Angular?\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+}
+ 

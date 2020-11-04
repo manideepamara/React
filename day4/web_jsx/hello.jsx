@@ -7,3 +7,4 @@ class _Main {
         document.getElementById("hello").appendChild(text);
     }
 }
+
