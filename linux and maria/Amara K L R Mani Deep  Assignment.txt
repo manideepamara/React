@@ -1,0 +1,91 @@
+ABC inc collects customers data in a customer table  which is very sensitive data for company. Company want to implement audit in a way that if any one delete or modifies any existing record the details of user who changed, date and time of change and customerID of changed record should be written in a table called Cust_Audit.
+
+How can we achieve this at database level?
+
+Write nessasary code to get this done.
+
+
+
+
+solution:
+===========
+
+
+let us assume the customer table consists of following attributes
+custid,cname,age,city,pincode
+
+
+inorder to monitor this table like which person delete /update data in this table is stored in table called cust_audit
+these are fields we need to insert if any modifications done
+customer details along with action (delete or update) and datetime and actionby(personname)
+
+
+to implement this triggers are used 
+
+
+
+Trigger for delete 
+create or replace TRIGGER delete_cust_details 
+before delete
+on customer for each row
+
+insert into cust_audit values (old.cid,old.cname,old.age,old.city,old.pincode,'delete',now(),current_user());
+
+
+
+Trigger for update
+create TRIGGER update_cust_details
+before update
+on customer for each row
+
+insert into cust_audit values(old.cid,old.cname,old.age,old.city,old.pincode,'update',now(),current_user());
+
+
+these are the triggers which we used to encounter the update or delete the customer dertails by whom at what and what action is perfoemd on data;
+
+
+
+
+
+
+
+
+practical work
+====================\
+Database changed
+MariaDB [emp_dept]> select * from customer;
+Empty set (0.00 sec)
+
+MariaDB [emp_dept]> insert into customer values(1,'scott',21,'neeewyork',123456);
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [emp_dept]> select * from cust_audit;
++------+-------+------+---------+---------+--------+---------------------+----------------+
+| cid  | cname | age  | city    | pincode | action | actionat            | actiondoneby   |
++------+-------+------+---------+---------+--------+---------------------+----------------+
+|    1 | scott |   21 | newyork |  123456 | delete | 2020-10-19 18:55:27 | root@localhost |
++------+-------+------+---------+---------+--------+---------------------+----------------+
+1 row in set (0.00 sec)
+
+MariaDB [emp_dept]> update customer set city='newyork' where cid=1;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [emp_dept]> select * from customer;
++------+-------+------+---------+---------+
+| cid  | cname | age  | city    | pincode |
++------+-------+------+---------+---------+
+|    1 | scott |   21 | newyork |  123456 |
++------+-------+------+---------+---------+
+1 row in set (0.00 sec)
+
+MariaDB [emp_dept]> select * from cust_audit;
++------+-------+------+-----------+---------+--------+---------------------+----------------+
+| cid  | cname | age  | city      | pincode | action | actionat            | actiondoneby   |
++------+-------+------+-----------+---------+--------+---------------------+----------------+
+|    1 | scott |   21 | newyork   |  123456 | delete | 2020-10-19 18:55:27 | root@localhost |
+|    1 | scott |   21 | neeewyork |  123456 | update | 2020-10-19 19:14:52 | root@localhost |
++------+-------+------+-----------+---------+--------+---------------------+----------------+
+2 rows in set (0.00 sec)
+
+

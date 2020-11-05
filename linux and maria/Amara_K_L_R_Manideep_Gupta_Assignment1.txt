@@ -1,0 +1,68 @@
+1)what is shared mountpoint and unbindable mountpoint?
+
+A)	1)shared mountpoint can be treated same of given specifed mount point.when the mount point is marked as shared it means
+
+	any mount with in the original mount is copied or reflected in the shared and vice versa
+	2)unbindable mount point is used to prevent the given mount point being duplicated,both mount points are different
+
+
+
+2)create a directory under directory create three files which contain information about bank.write a command to find the count of 
+all occurences of bank in all files under created directory	
+	1.mkdir mani
+ 
+	create a directory "mani"  
+	2.touch mani/file1 mani/file2 mani/file3
+ 
+	create a files under "mani" using touch 
+	3.fill content using 
+	cat >mani/file1 
+	cat>mani/file2 
+	cat>mani/file3
+  
+	4.grep -o -i "bank" mani/* |wc -l
+	using grep to get the all occurencres and send it to wc command using pipe operator
+	which actually finds the total occurences of bank 
+
+3)write a command to continuously monitor the log file of service which is in running
+	method 1 : the below command is used to get the last 10 lines of log file
+	in order to repeat this continuously awk script is used to get the last 10 lines of log file
+	tail -10 /var/log/<service-log-file>
+
+	for continuous using awk script
+
+	begin
+	{
+	
+while(1)
+
+	system("tail -10 /var/log/<service-log-file>")
+
+	}
+
+	{
+}
+	method 2:it is automatically listen to files and notify whenever file is updated
+	tail -f /var/log/<service-log-file> 
+	->f is used to follow the file if any thing added to files it display it
+4)what is shell in linux/Unix ?is there any shell other than bash shell? 
+	shell provides us an environment where we can run our commands,programs,scripts.it is an interface between kernal
+
+	and us which takes inputs from users and generate output based on inputs
+
+	there are 5 flavors of shell
+  
+	->sh
+  
+	->c
+  
+	->ksh
+ 
+	->tcsh
+  
+	->bash
+ 
+5)what is command to know in which shell we are in ?
+	echo $SHELL
+	the above command is used to print the shell which is stored in SHELL variabe using echo 
+	with the help of $ we can access the value in that variable

@@ -1,0 +1,635 @@
+MariaDB [(none)]> create database training
+    -> ;
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [(none)]> create table courses
+    -> (
+    -> courseId INT notnull,
+    -> courseName varchar(30),
+    -> duration Int,
+    -> maxMarks Int
+    -> dafsvbvsv    
+    -> ;
+MariaDB [(none)]> use training;
+Database changed
+MariaDB [training]> create table courses ( courseId int not null, coursename varchar(30), duration int, maxMarks int );
+Query OK, 0 rows affected (0.09 sec)
+
+MariaDB [training]> show tables;
++--------------------+
+| Tables_in_training |
++--------------------+
+| courses            |
++--------------------+
+1 row in set (0.00 sec)
+
+MariaDB [training]> create table students
+    -> (
+    -> studentId int not null,
+    -> studentName varchar(30),
+    -> courseId int not null,
+    -> joinDate datetime
+    -> ,
+    -> instructorId int
+    -> );
+Query OK, 0 rows affected (0.05 sec)
+
+MariaDB [training]> show tables;
++--------------------+
+| Tables_in_training |
++--------------------+
+| courses            |
+| students           |
++--------------------+
+2 rows in set (0.00 sec)
+
+MariaDB [training]> desc courses;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| courseId   | int(11)     | NO   |     | NULL    |       |
+| coursename | varchar(30) | YES  |     | NULL    |       |
+| duration   | int(11)     | YES  |     | NULL    |       |
+| maxMarks   | int(11)     | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+4 rows in set (0.01 sec)
+
+MariaDB [training]> desc students;
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| studentId    | int(11)     | NO   |     | NULL    |       |
+| studentName  | varchar(30) | YES  |     | NULL    |       |
+| courseId     | int(11)     | NO   |     | NULL    |       |
+| joinDate     | datetime    | YES  |     | NULL    |       |
+| instructorId | int(11)     | YES  |     | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+MariaDB [training]> create table scorecard
+    -> (
+    -> studentId int not null,
+    -> score int,
+    -> grade char(2)
+    -> );
+Query OK, 0 rows affected (0.04 sec)
+
+MariaDB [training]> desc scorecard;
++-----------+---------+------+-----+---------+-------+
+| Field     | Type    | Null | Key | Default | Extra |
++-----------+---------+------+-----+---------+-------+
+| studentId | int(11) | NO   |     | NULL    |       |
+| score     | int(11) | YES  |     | NULL    |       |
+| grade     | char(2) | YES  |     | NULL    |       |
++-----------+---------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+MariaDB [training]> create table gradebook
+    -> (
+    -> grade char(2),
+    -> gradeName varchar(20),
+    -> maxScore int,
+    -> minScore int
+    -> );
+Query OK, 0 rows affected (0.03 sec)
+
+MariaDB [training]> desc gradebook
+    -> ;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| grade     | char(2)     | YES  |     | NULL    |       |
+| gradeName | varchar(20) | YES  |     | NULL    |       |
+| maxScore  | int(11)     | YES  |     | NULL    |       |
+| minScore  | int(11)     | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+MariaDB [training]> create table instructor
+    -> (
+    -> instructorId int,
+    -> instructorName varchar(30)
+    -> );
+Query OK, 0 rows affected (0.04 sec)
+
+MariaDB [training]> show 
+    -> tables;
++--------------------+
+| Tables_in_training |
++--------------------+
+| courses            |
+| gradebook          |
+| instructor         |
+| scorecard          |
+| students           |
++--------------------+
+5 rows in set (0.00 sec)
+
+MariaDB [training]> desc students;
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| studentId    | int(11)     | NO   |     | NULL    |       |
+| studentName  | varchar(30) | YES  |     | NULL    |       |
+| courseId     | int(11)     | NO   |     | NULL    |       |
+| joinDate     | datetime    | YES  |     | NULL    |       |
+| instructorId | int(11)     | YES  |     | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+MariaDB [training]> desc courses;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| courseId   | int(11)     | NO   |     | NULL    |       |
+| coursename | varchar(30) | YES  |     | NULL    |       |
+| duration   | int(11)     | YES  |     | NULL    |       |
+| maxMarks   | int(11)     | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+MariaDB [training]> insert into courses values(&cid,&cname,&dur,&mm);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '&cid,&cname,&dur,&mm)' at line 1
+MariaDB [training]> insert into courses values('&cid','&cname','&dur','&mm');
+Query OK, 1 row affected, 3 warnings (0.01 sec)
+
+MariaDB [training]> select * from courses;
++----------+------------+----------+----------+
+| courseId | coursename | duration | maxMarks |
++----------+------------+----------+----------+
+|        0 | &cname     |        0 |        0 |
++----------+------------+----------+----------+
+1 row in set (0.00 sec)
+
+MariaDB [training]> delete from courses;
+Query OK, 1 row affected (0.01 sec)
+
+MariaDB [training]> insert into courses values(&'cid',&'cname',&'dur',&'mm');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '&'cid',&'cname',&'dur',&'mm')' at line 1
+MariaDB [training]> insert into courses
+    -> values ( &courseId,&coursename,&duration,&maxMarks);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '&courseId,&coursename,&duration,&maxMarks)' at line 2
+MariaDB [training]> insert into courses values ( &courseId,&coursename,&duration,&maxMarks);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '&courseId,&coursename,&duration,&maxMarks)' at line 1
+MariaDB [training]> insert into courses ( &courseId,&coursename,&duration,&maxMarks);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '&courseId,&coursename,&duration,&maxMarks)' at line 1
+MariaDB [training]> select * from courses where courseId=&n;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '&n' at line 1
+MariaDB [training]> select * from courses;
+Empty set (0.00 sec)
+
+MariaDB [training]> insert into courses (1,"maths",6,100);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '1,"maths",6,100)' at line 1
+MariaDB [training]> insert into courses (1,'maths',6,100);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '1,'maths',6,100)' at line 1
+MariaDB [training]> insert into courses values(1,'maths',6,100);
+Query OK, 1 row affected (0.01 sec)
+
+MariaDB [training]> insert into courses values(&cn,&ci,&d,&m);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '&cn,&ci,&d,&m)' at line 1
+MariaDB [training]> insert into courses values('&cn','&ci','&d','&m');
+Query OK, 1 row affected, 3 warnings (0.01 sec)
+
+MariaDB [training]> delete * from courses;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '* from courses' at line 1
+MariaDB [training]> delete  from courses;
+Query OK, 2 rows affected (0.00 sec)
+
+MariaDB [training]> insert into courses values(1,'maths',6,100);
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [training]> insert into courses values(2,'physics',6,100);
+Query OK, 1 row affected (0.01 sec)
+
+MariaDB [training]> insert into courses values(3,'chemistry',6,100);
+Query OK, 1 row affected (0.01 sec)
+
+MariaDB [training]> insert into courses values(4,'english',6,100);
+Query OK, 1 row affected (0.01 sec)
+
+MariaDB [training]> select * from courses;
++----------+------------+----------+----------+
+| courseId | coursename | duration | maxMarks |
++----------+------------+----------+----------+
+|        1 | maths      |        6 |      100 |
+|        2 | physics    |        6 |      100 |
+|        3 | chemistry  |        6 |      100 |
+|        4 | english    |        6 |      100 |
++----------+------------+----------+----------+
+4 rows in set (0.00 sec)
+
+MariaDB [training]> insert into insert into gradebook
+    -> values('D','pass',50,0);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'insert into gradebook
+values('D','pass',50,0)' at line 1
+MariaDB [training]> desc gradebook;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| grade     | char(2)     | YES  |     | NULL    |       |
+| gradeName | varchar(20) | YES  |     | NULL    |       |
+| maxScore  | int(11)     | YES  |     | NULL    |       |
+| minScore  | int(11)     | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+MariaDB [training]> insert into insert into gradebook values ('D','pass',50,0);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'insert into gradebook values ('D','pass',50,0)' at line 1
+MariaDB [training]> insert into insert into gradebook values (d,'pass',50,0);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'insert into gradebook values (d,'pass',50,0)' at line 1
+MariaDB [training]> insert into gradebook values (d,'pass',50,0);
+ERROR 1054 (42S22): Unknown column 'd' in 'field list'
+MariaDB [training]> insert into gradebook values ('D','pass',50,0);
+Query OK, 1 row affected (0.01 sec)
+
+MariaDB [training]> insert into gradebook values ('C','satisfactory',60,51);
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [training]> insert into gradebook values ('B','fair',70,61);
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [training]> insert into gradebook values ('B+','good',80,71);
+Query OK, 1 row affected (0.01 sec)
+
+MariaDB [training]> insert into gradebook values ('A','very good',90,81);
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [training]> insert into gradebook values ('A+','excellent',100,91);
+Query OK, 1 row affected (0.01 sec)
+
+MariaDB [training]> select * from gradebook
+    -> ;
++-------+--------------+----------+----------+
+| grade | gradeName    | maxScore | minScore |
++-------+--------------+----------+----------+
+| D     | pass         |       50 |        0 |
+| C     | satisfactory |       60 |       51 |
+| B     | fair         |       70 |       61 |
+| B+    | good         |       80 |       71 |
+| A     | very good    |       90 |       81 |
+| A+    | excellent    |      100 |       91 |
++-------+--------------+----------+----------+
+6 rows in set (0.00 sec)
+
+MariaDB [training]> desc instructors
+    -> ;
+ERROR 1146 (42S02): Table 'training.instructors' doesn't exist
+MariaDB [training]> desc instructor;
++----------------+-------------+------+-----+---------+-------+
+| Field          | Type        | Null | Key | Default | Extra |
++----------------+-------------+------+-----+---------+-------+
+| instructorId   | int(11)     | YES  |     | NULL    |       |
+| instructorName | varchar(30) | YES  |     | NULL    |       |
++----------------+-------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+MariaDB [training]> insert into instructor values (1,'Ramu');
+Query OK, 1 row affected (0.01 sec)
+
+MariaDB [training]> insert into instructor values (2,'Hari');
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [training]> insert into instructor values (3,'Bhanu');
+Query OK, 1 row affected (0.01 sec)
+
+MariaDB [training]> insert into instructor values (4,'lakshmi');
+Query OK, 1 row affected (0.01 sec)
+
+MariaDB [training]> select * from instructor;
++--------------+----------------+
+| instructorId | instructorName |
++--------------+----------------+
+|            1 | Ramu           |
+|            2 | Hari           |
+|            3 | Bhanu          |
+|            4 | lakshmi        |
++--------------+----------------+
+4 rows in set (0.00 sec)
+
+MariaDB [training]> desc students;
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| studentId    | int(11)     | NO   |     | NULL    |       |
+| studentName  | varchar(30) | YES  |     | NULL    |       |
+| courseId     | int(11)     | NO   |     | NULL    |       |
+| joinDate     | datetime    | YES  |     | NULL    |       |
+| instructorId | int(11)     | YES  |     | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+5 rows in set (0.01 sec)
+
+MariaDB [training]> insert into students values (1,'ramu',1,'jan-10-2020',4)
+    -> (2,'latha',2,'jan-15-2020',3);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '(2,'latha',2,'jan-15-2020',3)' at line 2
+MariaDB [training]> insert into students values (1,'ramu',1,'jan-10-2020',4),(2,'latha',2,'jan-15-2020',3);
+Query OK, 2 rows affected, 2 warnings (0.02 sec)
+Records: 2  Duplicates: 0  Warnings: 2
+
+MariaDB [training]> insert into students values (5,'uday',1,'mar-21-2020',1),(4,'sreenu',1,'apr-13-2020',2),(3,'ravi',3,'mar-23-2020',1);
+Query OK, 3 rows affected, 3 warnings (0.01 sec)
+Records: 3  Duplicates: 0  Warnings: 3
+
+MariaDB [training]> select * from students;
++-----------+-------------+----------+---------------------+--------------+
+| studentId | studentName | courseId | joinDate            | instructorId |
++-----------+-------------+----------+---------------------+--------------+
+|         1 | ramu        |        1 | 0000-00-00 00:00:00 |            4 |
+|         2 | latha       |        2 | 0000-00-00 00:00:00 |            3 |
+|         5 | uday        |        1 | 0000-00-00 00:00:00 |            1 |
+|         4 | sreenu      |        1 | 0000-00-00 00:00:00 |            2 |
+|         3 | ravi        |        3 | 0000-00-00 00:00:00 |            1 |
++-----------+-------------+----------+---------------------+--------------+
+5 rows in set (0.00 sec)
+
+MariaDB [training]> select * from students
+    -> order by studentId asc;
++-----------+-------------+----------+---------------------+--------------+
+| studentId | studentName | courseId | joinDate            | instructorId |
++-----------+-------------+----------+---------------------+--------------+
+|         1 | ramu        |        1 | 0000-00-00 00:00:00 |            4 |
+|         2 | latha       |        2 | 0000-00-00 00:00:00 |            3 |
+|         3 | ravi        |        3 | 0000-00-00 00:00:00 |            1 |
+|         4 | sreenu      |        1 | 0000-00-00 00:00:00 |            2 |
+|         5 | uday        |        1 | 0000-00-00 00:00:00 |            1 |
++-----------+-------------+----------+---------------------+--------------+
+5 rows in set (0.00 sec)
+
+MariaDB [training]> update students set joinDate=&joindate where studentId=&sid;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '&joindate where studentId=&sid' at line 1
+MariaDB [training]> update students set joinDate='2020-01-10'where 1=1;
+Query OK, 5 rows affected (0.01 sec)
+Rows matched: 5  Changed: 5  Warnings: 0
+
+MariaDB [training]> select * from students order by studentId asc;
++-----------+-------------+----------+---------------------+--------------+
+| studentId | studentName | courseId | joinDate            | instructorId |
++-----------+-------------+----------+---------------------+--------------+
+|         1 | ramu        |        1 | 2020-01-10 00:00:00 |            4 |
+|         2 | latha       |        2 | 2020-01-10 00:00:00 |            3 |
+|         3 | ravi        |        3 | 2020-01-10 00:00:00 |            1 |
+|         4 | sreenu      |        1 | 2020-01-10 00:00:00 |            2 |
+|         5 | uday        |        1 | 2020-01-10 00:00:00 |            1 |
++-----------+-------------+----------+---------------------+--------------+
+5 rows in set (0.00 sec)
+
+MariaDB [training]> insert into students values (8,'pavan',1,'21-2020-03-29',3),(7,'naveen',2,'2020-04-13',4),(6,'ajay',4,'2020-02-21',2);
+Query OK, 3 rows affected, 1 warning (0.00 sec)
+Records: 3  Duplicates: 0  Warnings: 1
+
+MariaDB [training]> select * from students order by studentId asc;
++-----------+-------------+----------+---------------------+--------------+
+| studentId | studentName | courseId | joinDate            | instructorId |
++-----------+-------------+----------+---------------------+--------------+
+|         1 | ramu        |        1 | 2020-01-10 00:00:00 |            4 |
+|         2 | latha       |        2 | 2020-01-10 00:00:00 |            3 |
+|         3 | ravi        |        3 | 2020-01-10 00:00:00 |            1 |
+|         4 | sreenu      |        1 | 2020-01-10 00:00:00 |            2 |
+|         5 | uday        |        1 | 2020-01-10 00:00:00 |            1 |
+|         6 | ajay        |        4 | 2020-02-21 00:00:00 |            2 |
+|         7 | naveen      |        2 | 2020-04-13 00:00:00 |            4 |
+|         8 | pavan       |        1 | 0000-00-00 00:00:00 |            3 |
++-----------+-------------+----------+---------------------+--------------+
+8 rows in set (0.00 sec)
+
+MariaDB [training]> update students set joinDate='2020-08-10'where studentId=8;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [training]> select * from students order by studentId asc;
++-----------+-------------+----------+---------------------+--------------+
+| studentId | studentName | courseId | joinDate            | instructorId |
++-----------+-------------+----------+---------------------+--------------+
+|         1 | ramu        |        1 | 2020-01-10 00:00:00 |            4 |
+|         2 | latha       |        2 | 2020-01-10 00:00:00 |            3 |
+|         3 | ravi        |        3 | 2020-01-10 00:00:00 |            1 |
+|         4 | sreenu      |        1 | 2020-01-10 00:00:00 |            2 |
+|         5 | uday        |        1 | 2020-01-10 00:00:00 |            1 |
+|         6 | ajay        |        4 | 2020-02-21 00:00:00 |            2 |
+|         7 | naveen      |        2 | 2020-04-13 00:00:00 |            4 |
+|         8 | pavan       |        1 | 2020-08-10 00:00:00 |            3 |
++-----------+-------------+----------+---------------------+--------------+
+8 rows in set (0.00 sec)
+
+MariaDB [training]> insert into students values (10,'jay',2,'2020-09-13',2),(9,'sai',4,'2020-09-15',4);
+Query OK, 2 rows affected (0.01 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+MariaDB [training]> select * from students order by studentId asc;
++-----------+-------------+----------+---------------------+--------------+
+| studentId | studentName | courseId | joinDate            | instructorId |
++-----------+-------------+----------+---------------------+--------------+
+|         1 | ramu        |        1 | 2020-01-10 00:00:00 |            4 |
+|         2 | latha       |        2 | 2020-01-10 00:00:00 |            3 |
+|         3 | ravi        |        3 | 2020-01-10 00:00:00 |            1 |
+|         4 | sreenu      |        1 | 2020-01-10 00:00:00 |            2 |
+|         5 | uday        |        1 | 2020-01-10 00:00:00 |            1 |
+|         6 | ajay        |        4 | 2020-02-21 00:00:00 |            2 |
+|         7 | naveen      |        2 | 2020-04-13 00:00:00 |            4 |
+|         8 | pavan       |        1 | 2020-08-10 00:00:00 |            3 |
+|         9 | sai         |        4 | 2020-09-15 00:00:00 |            4 |
+|        10 | jay         |        2 | 2020-09-13 00:00:00 |            2 |
++-----------+-------------+----------+---------------------+--------------+
+10 rows in set (0.01 sec)
+
+MariaDB [training]> desc scorecard;
++-----------+---------+------+-----+---------+-------+
+| Field     | Type    | Null | Key | Default | Extra |
++-----------+---------+------+-----+---------+-------+
+| studentId | int(11) | NO   |     | NULL    |       |
+| score     | int(11) | YES  |     | NULL    |       |
+| grade     | char(2) | YES  |     | NULL    |       |
++-----------+---------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+MariaDB [training]> insert into scorecard (studentId,score) values(1,29);
+Query OK, 1 row affected (0.01 sec)
+
+MariaDB [training]> insert into scorecard (studentId,score) values(2,35);
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [training]> insert into scorecard (studentId,score) values(3,93);
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [training]> insert into scorecard (studentId,score) values(4,56);
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [training]> insert into scorecard (studentId,score) values(5,78);
+Query OK, 1 row affected (0.01 sec)
+
+MariaDB [training]> insert into scorecard (studentId,score) values(6,57);
+Query OK, 1 row affected (0.05 sec)
+
+MariaDB [training]> insert into scorecard (studentId,score) values(6,69);
+Query OK, 1 row affected (0.01 sec)
+
+MariaDB [training]> insert into scorecard (studentId,score) values(8,92);
+Query OK, 1 row affected (0.01 sec)
+
+MariaDB [training]> insert into scorecard (studentId,score) values(9,72);
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [training]> insert into scorecard (studentId,score) values(10,83);
+Query OK, 1 row affected (0.01 sec)
+
+MariaDB [training]> update table set studentId=7 where score=69;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'table set studentId=7 where score=69' at line 1
+MariaDB [training]> update scorecard set studentId=7 where score =69;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [training]> update scorecard set grade='A+' where score>=91;
+Query OK, 2 rows affected (0.01 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+MariaDB [training]> update scorecard set grade='A' where score>=81 and score <91;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [training]> update scorecard set grade='B+' where score>=71 and score <81;
+Query OK, 2 rows affected (0.01 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+MariaDB [training]> update scorecard set grade='B' where score>=61 and score <71;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [training]> update scorecard set grade='C' where score>=51 and score <61;
+Query OK, 2 rows affected (0.00 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+MariaDB [training]> update scorecard set grade='D' where score <51;
+Query OK, 2 rows affected (0.00 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+MariaDB [training]> select * from scorecard;
++-----------+-------+-------+
+| studentId | score | grade |
++-----------+-------+-------+
+|         1 |    29 | D     |
+|         2 |    35 | D     |
+|         3 |    93 | A+    |
+|         4 |    56 | C     |
+|         5 |    78 | B+    |
+|         6 |    57 | C     |
+|         7 |    69 | B     |
+|         8 |    92 | A+    |
+|         9 |    72 | B+    |
+|        10 |    83 | A     |
++-----------+-------+-------+
+10 rows in set (0.00 sec)
+
+MariaDB [training]> select * fro, students;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'fro, students' at line 1
+MariaDB [training]> select * from students;
++-----------+-------------+----------+---------------------+--------------+
+| studentId | studentName | courseId | joinDate            | instructorId |
++-----------+-------------+----------+---------------------+--------------+
+|         1 | ramu        |        1 | 2020-01-10 00:00:00 |            4 |
+|         2 | latha       |        2 | 2020-01-10 00:00:00 |            3 |
+|         5 | uday        |        1 | 2020-01-10 00:00:00 |            1 |
+|         4 | sreenu      |        1 | 2020-01-10 00:00:00 |            2 |
+|         3 | ravi        |        3 | 2020-01-10 00:00:00 |            1 |
+|         8 | pavan       |        1 | 2020-08-10 00:00:00 |            3 |
+|         7 | naveen      |        2 | 2020-04-13 00:00:00 |            4 |
+|         6 | ajay        |        4 | 2020-02-21 00:00:00 |            2 |
+|        10 | jay         |        2 | 2020-09-13 00:00:00 |            2 |
+|         9 | sai         |        4 | 2020-09-15 00:00:00 |            4 |
++-----------+-------------+----------+---------------------+--------------+
+10 rows in set (0.00 sec)
+
+MariaDB [training]> select * from courses;
++----------+------------+----------+----------+
+| courseId | coursename | duration | maxMarks |
++----------+------------+----------+----------+
+|        1 | maths      |        6 |      100 |
+|        2 | physics    |        6 |      100 |
+|        3 | chemistry  |        6 |      100 |
+|        4 | english    |        6 |      100 |
++----------+------------+----------+----------+
+4 rows in set (0.00 sec)
+
+MariaDB [training]> update scorecard set score = 39 where studentId=1;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [training]> select * from scorecard;
++-----------+-------+-------+
+| studentId | score | grade |
++-----------+-------+-------+
+|         1 |    39 | D     |
+|         2 |    35 | D     |
+|         3 |    93 | A+    |
+|         4 |    56 | C     |
+|         5 |    78 | B+    |
+|         6 |    57 | C     |
+|         7 |    69 | B     |
+|         8 |    92 | A+    |
+|         9 |    72 | B+    |
+|        10 |    83 | A     |
++-----------+-------+-------+
+10 rows in set (0.00 sec)
+
+MariaDB [training]> update scorecard set score = 79 where studentId=9;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [training]> select * from scorecard;
++-----------+-------+-------+
+| studentId | score | grade |
++-----------+-------+-------+
+|         1 |    39 | D     |
+|         2 |    35 | D     |
+|         3 |    93 | A+    |
+|         4 |    56 | C     |
+|         5 |    78 | B+    |
+|         6 |    57 | C     |
+|         7 |    69 | B     |
+|         8 |    92 | A+    |
+|         9 |    79 | B+    |
+|        10 |    83 | A     |
++-----------+-------+-------+
+10 rows in set (0.00 sec)
+
+MariaDB [training]> update scorecard set score = 52  where studentId=6;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [training]> select * from courses;
++----------+------------+----------+----------+
+| courseId | coursename | duration | maxMarks |
++----------+------------+----------+----------+
+|        1 | maths      |        6 |      100 |
+|        2 | physics    |        6 |      100 |
+|        3 | chemistry  |        6 |      100 |
+|        4 | english    |        6 |      100 |
++----------+------------+----------+----------+
+4 rows in set (0.00 sec)
+
+MariaDB [training]> insert into courses values(5,'Telugu',6,100);
+Query OK, 1 row affected (0.01 sec)
+
+MariaDB [training]> select * from courses;
++----------+------------+----------+----------+
+| courseId | coursename | duration | maxMarks |
++----------+------------+----------+----------+
+|        1 | maths      |        6 |      100 |
+|        2 | physics    |        6 |      100 |
+|        3 | chemistry  |        6 |      100 |
+|        4 | english    |        6 |      100 |
+|        5 | Telugu     |        6 |      100 |
++----------+------------+----------+----------+
+5 rows in set (0.00 sec)
+
+MariaDB [training]> delete from courses where courseId=4;
+Query OK, 1 row affected (0.01 sec)
+
+MariaDB [training]> select * from courses;
++----------+------------+----------+----------+
+| courseId | coursename | duration | maxMarks |
++----------+------------+----------+----------+
+|        1 | maths      |        6 |      100 |
+|        2 | physics    |        6 |      100 |
+|        3 | chemistry  |        6 |      100 |
+|        5 | Telugu     |        6 |      100 |
++----------+------------+----------+----------+
+4 rows in set (0.00 sec)

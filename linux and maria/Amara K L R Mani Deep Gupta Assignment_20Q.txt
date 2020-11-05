@@ -1,0 +1,1075 @@
+ght syntax to use near 'gedit' at line 1
+MariaDB [employee]> system clear;
+
+MariaDB [employee]> select * from emp;
++-------+---------+-----------+------+------------+---------+---------+--------+
+| empno | ename   | job       | mgr  | hiredate   | sal     | comm    | deptno |
++-------+---------+-----------+------+------------+---------+---------+--------+
+|  7369 | SMITH   | CLERK     | 7902 | 0000-00-00 |  800.00 |    NULL |     20 |
+|  7499 | ALLEN   | SALESMAN  | 7698 | 0000-00-00 | 1600.00 |  300.00 |     30 |
+|  7521 | WARD    | SALESMAN  | 7698 | 0000-00-00 | 1250.00 |  500.00 |     30 |
+|  7566 | JONES   | MANAGER   | 7839 | 0000-00-00 | 2975.00 |    NULL |     20 |
+|  7654 | MARTIN  | SALESMAN  | 7698 | 0000-00-00 | 1250.00 | 1400.00 |     30 |
+|  7698 | BLAKE   | MANAGER   | 7839 | 0000-00-00 | 2850.00 |    NULL |     30 |
+|  7782 | CLARK   | MANAGER   | 7839 | 0000-00-00 | 2450.00 |    NULL |     10 |
+|  7788 | SCOTT   | ANALYST   | 7566 | 0000-00-00 | 3000.00 |    NULL |     20 |
+|  7839 | KING    | PRESIDENT | NULL | 0000-00-00 | 5000.00 |    NULL |     10 |
+|  7844 | TURNER  | SALESMAN  | 7698 | 0000-00-00 | 1600.00 |    0.00 |     30 |
+|  7876 | ADAMS   | CLERK     | 7788 | 0000-00-00 | 1100.00 |    NULL |     20 |
+|  7900 | JAMES   | CLERK     | 7698 | 0000-00-00 |  950.00 |    NULL |     30 |
+|  7902 | FORD    | ANALYST   | 7566 | 0000-00-00 | 3000.00 |    NULL |     20 |
+|  7934 | MILLER  | CLERK     | 7782 | 0000-00-00 | 1300.00 |    NULL |     10 |
+|  8001 | SHERMAN | ANALYST   | 7782 | 0000-00-00 | 2300.00 |    NULL |     20 |
++-------+---------+-----------+------+------------+---------+---------+--------+
+15 rows in set (0.00 sec)
+
+MariaDB [employee]> selct distinct job from emp;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'selct distinct job from emp' at line 1
+MariaDB [employee]> select distinct job from emp;
++-----------+
+| job       |
++-----------+
+| CLERK     |
+| SALESMAN  |
+| MANAGER   |
+| ANALYST   |
+| PRESIDENT |
++-----------+
+5 rows in set (0.00 sec)
+
+MariaDB [employee]> select ename,sal from emp order by sal;
++---------+---------+
+| ename   | sal     |
++---------+---------+
+| SMITH   |  800.00 |
+| JAMES   |  950.00 |
+| ADAMS   | 1100.00 |
+| WARD    | 1250.00 |
+| MARTIN  | 1250.00 |
+| MILLER  | 1300.00 |
+| ALLEN   | 1600.00 |
+| TURNER  | 1600.00 |
+| SHERMAN | 2300.00 |
+| CLARK   | 2450.00 |
+| BLAKE   | 2850.00 |
+| JONES   | 2975.00 |
+| FORD    | 3000.00 |
+| SCOTT   | 3000.00 |
+| KING    | 5000.00 |
++---------+---------+
+15 rows in set (0.00 sec)
+
+MariaDB [employee]> selct * from emp order by deptno asc job desc;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'selct * from emp order by deptno asc job desc' at line 1
+MariaDB [employee]> select * from emp order by deptno asc job desc;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'job desc' at line 1
+MariaDB [employee]> select * from emp order by deptno asc,job desc;
++-------+---------+-----------+------+------------+---------+---------+--------+
+| empno | ename   | job       | mgr  | hiredate   | sal     | comm    | deptno |
++-------+---------+-----------+------+------------+---------+---------+--------+
+|  7839 | KING    | PRESIDENT | NULL | 0000-00-00 | 5000.00 |    NULL |     10 |
+|  7782 | CLARK   | MANAGER   | 7839 | 0000-00-00 | 2450.00 |    NULL |     10 |
+|  7934 | MILLER  | CLERK     | 7782 | 0000-00-00 | 1300.00 |    NULL |     10 |
+|  7566 | JONES   | MANAGER   | 7839 | 0000-00-00 | 2975.00 |    NULL |     20 |
+|  7369 | SMITH   | CLERK     | 7902 | 0000-00-00 |  800.00 |    NULL |     20 |
+|  7876 | ADAMS   | CLERK     | 7788 | 0000-00-00 | 1100.00 |    NULL |     20 |
+|  7902 | FORD    | ANALYST   | 7566 | 0000-00-00 | 3000.00 |    NULL |     20 |
+|  7788 | SCOTT   | ANALYST   | 7566 | 0000-00-00 | 3000.00 |    NULL |     20 |
+|  8001 | SHERMAN | ANALYST   | 7782 | 0000-00-00 | 2300.00 |    NULL |     20 |
+|  7844 | TURNER  | SALESMAN  | 7698 | 0000-00-00 | 1600.00 |    0.00 |     30 |
+|  7654 | MARTIN  | SALESMAN  | 7698 | 0000-00-00 | 1250.00 | 1400.00 |     30 |
+|  7521 | WARD    | SALESMAN  | 7698 | 0000-00-00 | 1250.00 |  500.00 |     30 |
+|  7499 | ALLEN   | SALESMAN  | 7698 | 0000-00-00 | 1600.00 |  300.00 |     30 |
+|  7698 | BLAKE   | MANAGER   | 7839 | 0000-00-00 | 2850.00 |    NULL |     30 |
+|  7900 | JAMES   | CLERK     | 7698 | 0000-00-00 |  950.00 |    NULL |     30 |
++-------+---------+-----------+------+------------+---------+---------+--------+
+15 rows in set (0.00 sec)
+
+MariaDB [employee]> select distinct job from emp order by job desc;
++-----------+
+| job       |
++-----------+
+| SALESMAN  |
+| PRESIDENT |
+| MANAGER   |
+| CLERK     |
+| ANALYST   |
++-----------+
+5 rows in set (0.00 sec)
+
+MariaDB [employee]> select * from emp
+    -> where empno = (
+    -> select mgr from emp where mgr<>NULL);
+Empty set (0.00 sec)
+
+MariaDB [employee]> select * from emp where empno in  ( select mgr from emp where mgr<>NULL);
+Empty set (0.00 sec)
+
+MariaDB [employee]> select mgr from emp where emp<>NULL;
+ERROR 1054 (42S22): Unknown column 'emp' in 'where clause'
+MariaDB [employee]> select mgr from emp where mgr<>NULL;
+Empty set (0.00 sec)
+
+MariaDB [employee]> select mgr from emp;
++------+
+| mgr  |
++------+
+| 7902 |
+| 7698 |
+| 7698 |
+| 7839 |
+| 7698 |
+| 7839 |
+| 7839 |
+| 7566 |
+| NULL |
+| 7698 |
+| 7788 |
+| 7698 |
+| 7566 |
+| 7782 |
+| 7782 |
++------+
+15 rows in set (0.00 sec)
+
+MariaDB [employee]> select mgr from emp minus NULL ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'NULL' at line 1
+MariaDB [employee]> select mgr from emp minus select NULL ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'select NULL' at line 1
+MariaDB [employee]> select NULL;
++------+
+| NULL |
++------+
+| NULL |
++------+
+1 row in set (0.00 sec)
+
+MariaDB [employee]> select * from emp where empno in  ( select mgr from emp );
++-------+-------+-----------+------+------------+---------+------+--------+
+| empno | ename | job       | mgr  | hiredate   | sal     | comm | deptno |
++-------+-------+-----------+------+------------+---------+------+--------+
+|  7566 | JONES | MANAGER   | 7839 | 0000-00-00 | 2975.00 | NULL |     20 |
+|  7698 | BLAKE | MANAGER   | 7839 | 0000-00-00 | 2850.00 | NULL |     30 |
+|  7782 | CLARK | MANAGER   | 7839 | 0000-00-00 | 2450.00 | NULL |     10 |
+|  7788 | SCOTT | ANALYST   | 7566 | 0000-00-00 | 3000.00 | NULL |     20 |
+|  7839 | KING  | PRESIDENT | NULL | 0000-00-00 | 5000.00 | NULL |     10 |
+|  7902 | FORD  | ANALYST   | 7566 | 0000-00-00 | 3000.00 | NULL |     20 |
++-------+-------+-----------+------+------------+---------+------+--------+
+6 rows in set (0.00 sec)
+
+MariaDB [employee]> select distinct mgr from emp;
++------+
+| mgr  |
++------+
+| 7902 |
+| 7698 |
+| 7839 |
+| 7566 |
+| NULL |
+| 7788 |
+| 7782 |
++------+
+7 rows in set (0.00 sec)
+
+MariaDB [employee]> select * from emp where YEAR(hiredate) before 1981;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'before 1981' at line 1
+MariaDB [employee]> select * from emp where YEAR(hiredate) < 1981;
++-------+---------+-----------+------+------------+---------+---------+--------+
+| empno | ename   | job       | mgr  | hiredate   | sal     | comm    | deptno |
++-------+---------+-----------+------+------------+---------+---------+--------+
+|  7369 | SMITH   | CLERK     | 7902 | 0000-00-00 |  800.00 |    NULL |     20 |
+|  7499 | ALLEN   | SALESMAN  | 7698 | 0000-00-00 | 1600.00 |  300.00 |     30 |
+|  7521 | WARD    | SALESMAN  | 7698 | 0000-00-00 | 1250.00 |  500.00 |     30 |
+|  7566 | JONES   | MANAGER   | 7839 | 0000-00-00 | 2975.00 |    NULL |     20 |
+|  7654 | MARTIN  | SALESMAN  | 7698 | 0000-00-00 | 1250.00 | 1400.00 |     30 |
+|  7698 | BLAKE   | MANAGER   | 7839 | 0000-00-00 | 2850.00 |    NULL |     30 |
+|  7782 | CLARK   | MANAGER   | 7839 | 0000-00-00 | 2450.00 |    NULL |     10 |
+|  7788 | SCOTT   | ANALYST   | 7566 | 0000-00-00 | 3000.00 |    NULL |     20 |
+|  7839 | KING    | PRESIDENT | NULL | 0000-00-00 | 5000.00 |    NULL |     10 |
+|  7844 | TURNER  | SALESMAN  | 7698 | 0000-00-00 | 1600.00 |    0.00 |     30 |
+|  7876 | ADAMS   | CLERK     | 7788 | 0000-00-00 | 1100.00 |    NULL |     20 |
+|  7900 | JAMES   | CLERK     | 7698 | 0000-00-00 |  950.00 |    NULL |     30 |
+|  7902 | FORD    | ANALYST   | 7566 | 0000-00-00 | 3000.00 |    NULL |     20 |
+|  7934 | MILLER  | CLERK     | 7782 | 0000-00-00 | 1300.00 |    NULL |     10 |
+|  8001 | SHERMAN | ANALYST   | 7782 | 0000-00-00 | 2300.00 |    NULL |     20 |
++-------+---------+-----------+------+------------+---------+---------+--------+
+15 rows in set (0.01 sec)
+
+MariaDB [employee]> select * from emp ;
++-------+---------+-----------+------+------------+---------+---------+--------+
+| empno | ename   | job       | mgr  | hiredate   | sal     | comm    | deptno |
++-------+---------+-----------+------+------------+---------+---------+--------+
+|  7369 | SMITH   | CLERK     | 7902 | 0000-00-00 |  800.00 |    NULL |     20 |
+|  7499 | ALLEN   | SALESMAN  | 7698 | 0000-00-00 | 1600.00 |  300.00 |     30 |
+|  7521 | WARD    | SALESMAN  | 7698 | 0000-00-00 | 1250.00 |  500.00 |     30 |
+|  7566 | JONES   | MANAGER   | 7839 | 0000-00-00 | 2975.00 |    NULL |     20 |
+|  7654 | MARTIN  | SALESMAN  | 7698 | 0000-00-00 | 1250.00 | 1400.00 |     30 |
+|  7698 | BLAKE   | MANAGER   | 7839 | 0000-00-00 | 2850.00 |    NULL |     30 |
+|  7782 | CLARK   | MANAGER   | 7839 | 0000-00-00 | 2450.00 |    NULL |     10 |
+|  7788 | SCOTT   | ANALYST   | 7566 | 0000-00-00 | 3000.00 |    NULL |     20 |
+|  7839 | KING    | PRESIDENT | NULL | 0000-00-00 | 5000.00 |    NULL |     10 |
+|  7844 | TURNER  | SALESMAN  | 7698 | 0000-00-00 | 1600.00 |    0.00 |     30 |
+|  7876 | ADAMS   | CLERK     | 7788 | 0000-00-00 | 1100.00 |    NULL |     20 |
+|  7900 | JAMES   | CLERK     | 7698 | 0000-00-00 |  950.00 |    NULL |     30 |
+|  7902 | FORD    | ANALYST   | 7566 | 0000-00-00 | 3000.00 |    NULL |     20 |
+|  7934 | MILLER  | CLERK     | 7782 | 0000-00-00 | 1300.00 |    NULL |     10 |
+|  8001 | SHERMAN | ANALYST   | 7782 | 0000-00-00 | 2300.00 |    NULL |     20 |
++-------+---------+-----------+------+------------+---------+---------+--------+
+15 rows in set (0.00 sec)
+
+MariaDB [employee]> INSERT INTO emp VALUES ('7369','SMITH','CLERK','7902','1980-12-
+    '> 17','800.00',NULL,'20');
+Query OK, 1 row affected, 1 warning (0.01 sec)
+
+MariaDB [employee]> INSERT INTO emp VALUES ('7499','ALLEN','SALESMAN','7698','1981-02-
+    '> 20','1600.00','300.00','30');
+Query OK, 1 row affected, 1 warning (0.01 sec)
+
+MariaDB [employee]> INSERT INTO emp VALUES ('7521','WARD','SALESMAN','7698','1981-02-
+    '> 22','1250.00','500.00','30');
+Query OK, 1 row affected, 1 warning (0.01 sec)
+
+MariaDB [employee]> INSERT INTO emp VALUES ('7566','JONES','MANAGER','7839','1981-04-
+    '> 02','2975.00',NULL,'20');
+Query OK, 1 row affected, 1 warning (0.01 sec)
+
+MariaDB [employee]> INSERT INTO emp VALUES ('7654','MARTIN','SALESMAN','7698','1981-09-
+    '> 28','1250.00','1400.00','30');
+Query OK, 1 row affected, 1 warning (0.01 sec)
+
+MariaDB [employee]> INSERT INTO emp VALUES ('7698','BLAKE','MANAGER','7839','1981-05-
+    '> 01','2850.00',NULL,'30');
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+MariaDB [employee]> INSERT INTO emp VALUES ('7782','CLARK','MANAGER','7839','1981-06-
+    '> 09','2450.00',NULL,'10');
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+MariaDB [employee]> INSERT INTO emp VALUES ('7788','SCOTT','ANALYST','7566','1982-12-
+    '> 09','3000.00',NULL,'20');
+Query OK, 1 row affected, 1 warning (0.01 sec)
+
+MariaDB [employee]> INSERT INTO emp VALUES ('7839','KING','PRESIDENT',NULL,'1981-11-
+    '> 17','5000.00',NULL,'10');
+Query OK, 1 row affected, 1 warning (0.01 sec)
+
+MariaDB [employee]> INSERT INTO emp VALUES ('7844','TURNER','SALESMAN','7698','1981-09-
+    '> 08','1500.00','0.00','30');
+Query OK, 1 row affected, 1 warning (0.01 sec)
+
+MariaDB [employee]> INSERT INTO emp VALUES ('7876','ADAMS','CLERK','7788','1983-01-
+    '> 12','1100.00',NULL,'20');
+Query OK, 1 row affected, 1 warning (0.01 sec)
+
+MariaDB [employee]> INSERT INTO emp VALUES ('7900','JAMES','CLERK','7698','1981-12-
+    '> 03','950.00',NULL,'30');
+Query OK, 1 row affected, 1 warning (0.01 sec)
+
+MariaDB [employee]> INSERT INTO emp VALUES ('7902','FORD','ANALYST','7566','1981-12-
+    '> 03','3000.00',NULL,'20');
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+MariaDB [employee]> INSERT INTO emp VALUES ('7934','MILLER','CLERK','7782','1982-01-
+    '> 23','1300.00',NULL,'10');
+Query OK, 1 row affected, 1 warning (0.01 sec)
+
+MariaDB [employee]> select * from emp ;
++-------+---------+-----------+------+------------+---------+---------+--------+
+| empno | ename   | job       | mgr  | hiredate   | sal     | comm    | deptno |
++-------+---------+-----------+------+------------+---------+---------+--------+
+|  7369 | SMITH   | CLERK     | 7902 | 0000-00-00 |  800.00 |    NULL |     20 |
+|  7499 | ALLEN   | SALESMAN  | 7698 | 0000-00-00 | 1600.00 |  300.00 |     30 |
+|  7521 | WARD    | SALESMAN  | 7698 | 0000-00-00 | 1250.00 |  500.00 |     30 |
+|  7566 | JONES   | MANAGER   | 7839 | 0000-00-00 | 2975.00 |    NULL |     20 |
+|  7654 | MARTIN  | SALESMAN  | 7698 | 0000-00-00 | 1250.00 | 1400.00 |     30 |
+|  7698 | BLAKE   | MANAGER   | 7839 | 0000-00-00 | 2850.00 |    NULL |     30 |
+|  7782 | CLARK   | MANAGER   | 7839 | 0000-00-00 | 2450.00 |    NULL |     10 |
+|  7788 | SCOTT   | ANALYST   | 7566 | 0000-00-00 | 3000.00 |    NULL |     20 |
+|  7839 | KING    | PRESIDENT | NULL | 0000-00-00 | 5000.00 |    NULL |     10 |
+|  7844 | TURNER  | SALESMAN  | 7698 | 0000-00-00 | 1600.00 |    0.00 |     30 |
+|  7876 | ADAMS   | CLERK     | 7788 | 0000-00-00 | 1100.00 |    NULL |     20 |
+|  7900 | JAMES   | CLERK     | 7698 | 0000-00-00 |  950.00 |    NULL |     30 |
+|  7902 | FORD    | ANALYST   | 7566 | 0000-00-00 | 3000.00 |    NULL |     20 |
+|  7934 | MILLER  | CLERK     | 7782 | 0000-00-00 | 1300.00 |    NULL |     10 |
+|  8001 | SHERMAN | ANALYST   | 7782 | 0000-00-00 | 2300.00 |    NULL |     20 |
+|  7369 | SMITH   | CLERK     | 7902 | 0000-00-00 |  800.00 |    NULL |     20 |
+|  7499 | ALLEN   | SALESMAN  | 7698 | 0000-00-00 | 1600.00 |  300.00 |     30 |
+|  7521 | WARD    | SALESMAN  | 7698 | 0000-00-00 | 1250.00 |  500.00 |     30 |
+|  7566 | JONES   | MANAGER   | 7839 | 0000-00-00 | 2975.00 |    NULL |     20 |
+|  7654 | MARTIN  | SALESMAN  | 7698 | 0000-00-00 | 1250.00 | 1400.00 |     30 |
+|  7698 | BLAKE   | MANAGER   | 7839 | 0000-00-00 | 2850.00 |    NULL |     30 |
+|  7782 | CLARK   | MANAGER   | 7839 | 0000-00-00 | 2450.00 |    NULL |     10 |
+|  7788 | SCOTT   | ANALYST   | 7566 | 0000-00-00 | 3000.00 |    NULL |     20 |
+|  7839 | KING    | PRESIDENT | NULL | 0000-00-00 | 5000.00 |    NULL |     10 |
+|  7844 | TURNER  | SALESMAN  | 7698 | 0000-00-00 | 1500.00 |    0.00 |     30 |
+|  7876 | ADAMS   | CLERK     | 7788 | 0000-00-00 | 1100.00 |    NULL |     20 |
+|  7900 | JAMES   | CLERK     | 7698 | 0000-00-00 |  950.00 |    NULL |     30 |
+|  7902 | FORD    | ANALYST   | 7566 | 0000-00-00 | 3000.00 |    NULL |     20 |
+|  7934 | MILLER  | CLERK     | 7782 | 0000-00-00 | 1300.00 |    NULL |     10 |
++-------+---------+-----------+------+------------+---------+---------+--------+
+29 rows in set (0.00 sec)
+
+MariaDB [employee]> delete from emp;
+Query OK, 29 rows affected (0.00 sec)
+
+MariaDB [employee]> INSERT INTO emp VALUES ('7369','SMITH','CLERK','7902','1980-12-
+    '> '
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+MariaDB [employee]> INSERT INTO emp VALUES ('7902','FORD','ANALYST','7566','1981-12-03','3000.00',NULL,'20');
+Query OK, 1 row affected (0.01 sec)
+
+MariaDB [employee]> INSERT INTO emp VALUES ('7934','MILLER','CLERK','7782','1982-01-23','1300.00',NULL,'10');
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [employee]> INSERT INTO emp VALUES ('7900','JAMES','CLERK','7698','1981-12-03','950.00',NULL,'30');
+Query OK, 1 row affected (0.01 sec)
+
+MariaDB [employee]> INSERT INTO emp VALUES ('7876','ADAMS','CLERK','7788','1983-01-12','1100.00',NULL,'20');
+Query OK, 1 row affected (0.01 sec)
+
+MariaDB [employee]> INSERT INTO emp VALUES ('7844','TURNER','SALESMAN','7698','1981-09-08','1500.00','0.00','30');
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [employee]> INSERT INTO emp VALUES ('7839','KING','PRESIDENT',NULL,'1981-11-17','5000.00',NULL,'10');
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [employee]> INSERT INTO emp VALUES ('7788','SCOTT','ANALYST','7566','1982-12-09','3000.00',NULL,'20');
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [employee]> INSERT INTO emp VALUES ('7782','CLARK','MANAGER','7839','1981-06-09','2450.00',NULL,'10');
+Query OK, 1 row affected (0.01 sec)
+
+MariaDB [employee]> INSERT INTO emp VALUES ('7698','BLAKE','MANAGER','7839','1981-05-01','2850.00',NULL,'30'),
+    -> ('7654','MARTIN','SALESMAN','7698','1981-09-28','1250.00','1400.00','30'),
+    -> ('7566','JONES','MANAGER','7839','1981-04-02','2975.00',NULL,'20'),
+    -> ('7521','WARD','SALESMAN','7698','1981-02-22','1250.00','500.00','30'),
+    -> ('7499','ALLEN','SALESMAN','7698','1981-02-20','1600.00','300.00','30'),
+    -> ('7369','SMITH','CLERK','7902','1980-12-17','800.00',NULL,'20');
+Query OK, 6 rows affected (0.00 sec)
+Records: 6  Duplicates: 0  Warnings: 0
+
+MariaDB [employee]> select * from emp;
++-------+--------+-----------+------+------------+---------+---------+--------+
+| empno | ename  | job       | mgr  | hiredate   | sal     | comm    | deptno |
++-------+--------+-----------+------+------------+---------+---------+--------+
+|  7902 | FORD   | ANALYST   | 7566 | 1981-12-03 | 3000.00 |    NULL |     20 |
+|  7934 | MILLER | CLERK     | 7782 | 1982-01-23 | 1300.00 |    NULL |     10 |
+|  7900 | JAMES  | CLERK     | 7698 | 1981-12-03 |  950.00 |    NULL |     30 |
+|  7876 | ADAMS  | CLERK     | 7788 | 1983-01-12 | 1100.00 |    NULL |     20 |
+|  7844 | TURNER | SALESMAN  | 7698 | 1981-09-08 | 1500.00 |    0.00 |     30 |
+|  7839 | KING   | PRESIDENT | NULL | 1981-11-17 | 5000.00 |    NULL |     10 |
+|  7788 | SCOTT  | ANALYST   | 7566 | 1982-12-09 | 3000.00 |    NULL |     20 |
+|  7782 | CLARK  | MANAGER   | 7839 | 1981-06-09 | 2450.00 |    NULL |     10 |
+|  7698 | BLAKE  | MANAGER   | 7839 | 1981-05-01 | 2850.00 |    NULL |     30 |
+|  7654 | MARTIN | SALESMAN  | 7698 | 1981-09-28 | 1250.00 | 1400.00 |     30 |
+|  7566 | JONES  | MANAGER   | 7839 | 1981-04-02 | 2975.00 |    NULL |     20 |
+|  7521 | WARD   | SALESMAN  | 7698 | 1981-02-22 | 1250.00 |  500.00 |     30 |
+|  7499 | ALLEN  | SALESMAN  | 7698 | 1981-02-20 | 1600.00 |  300.00 |     30 |
+|  7369 | SMITH  | CLERK     | 7902 | 1980-12-17 |  800.00 |    NULL |     20 |
++-------+--------+-----------+------+------------+---------+---------+--------+
+14 rows in set (0.00 sec)
+
+MariaDB [employee]> select empno,ename,job,hiredate,now()-hiredate exp from emp where empno in (
+    -> select mgr from emp);
++-------+-------+-----------+------------+----------------+
+| empno | ename | job       | hiredate   | exp            |
++-------+-------+-----------+------------+----------------+
+|  7902 | FORD  | ANALYST   | 1981-12-03 | 20200996419549 |
+|  7839 | KING  | PRESIDENT | 1981-11-17 | 20200996419635 |
+|  7788 | SCOTT | ANALYST   | 1982-12-09 | 20200996409543 |
+|  7782 | CLARK | MANAGER   | 1981-06-09 | 20200996420143 |
+|  7698 | BLAKE | MANAGER   | 1981-05-01 | 20200996420251 |
+|  7566 | JONES | MANAGER   | 1981-04-02 | 20200996420350 |
++-------+-------+-----------+------------+----------------+
+6 rows in set (0.00 sec)
+
+MariaDB [employee]> select empno,ename,job,hiredate,date(now()-hiredate) exp from emp where empno in ( select mgr from emp);
++-------+-------+-----------+------------+------+
+| empno | ename | job       | hiredate   | exp  |
++-------+-------+-----------+------------+------+
+|  7902 | FORD  | ANALYST   | 1981-12-03 | NULL |
+|  7839 | KING  | PRESIDENT | 1981-11-17 | NULL |
+|  7788 | SCOTT | ANALYST   | 1982-12-09 | NULL |
+|  7782 | CLARK | MANAGER   | 1981-06-09 | NULL |
+|  7698 | BLAKE | MANAGER   | 1981-05-01 | NULL |
+|  7566 | JONES | MANAGER   | 1981-04-02 | NULL |
++-------+-------+-----------+------------+------+
+6 rows in set, 6 warnings (0.00 sec)
+
+MariaDB [employee]> select now();
++---------------------+
+| now()               |
++---------------------+
+| 2020-10-16 23:13:53 |
++---------------------+
+1 row in set (0.00 sec)
+
+MariaDB [employee]> select datediff('1998-09-15',now());
++------------------------------+
+| datediff('1998-09-15',now()) |
++------------------------------+
+|                        -8067 |
++------------------------------+
+1 row in set (0.01 sec)
+
+MariaDB [employee]> select datediff(YY,'1998-09-15',now());
+ERROR 1582 (42000): Incorrect parameter count in the call to native function 'datediff'
+MariaDB [employee]> select datediff('YY','1998-09-15',now());
+ERROR 1582 (42000): Incorrect parameter count in the call to native function 'datediff'
+MariaDB [employee]> select datediff(YY,date('1998-09-15'),now());
+ERROR 1582 (42000): Incorrect parameter count in the call to native function 'datediff'
+MariaDB [employee]> select empno,ename,job,hiredate,datediff(now(),hiredate) exp from emp where empno in ( select mgr from emp);
++-------+-------+-----------+------------+-------+
+| empno | ename | job       | hiredate   | exp   |
++-------+-------+-----------+------------+-------+
+|  7902 | FORD  | ANALYST   | 1981-12-03 | 14197 |
+|  7839 | KING  | PRESIDENT | 1981-11-17 | 14213 |
+|  7788 | SCOTT | ANALYST   | 1982-12-09 | 13826 |
+|  7782 | CLARK | MANAGER   | 1981-06-09 | 14374 |
+|  7698 | BLAKE | MANAGER   | 1981-05-01 | 14413 |
+|  7566 | JONES | MANAGER   | 1981-04-02 | 14442 |
++-------+-------+-----------+------------+-------+
+6 rows in set (0.00 sec)
+
+MariaDB [employee]> select empno,ename,job,hiredate,datediff(now(),hiredate)/366 exp from emp where empno in ( select mgr from emp);
++-------+-------+-----------+------------+---------+
+| empno | ename | job       | hiredate   | exp     |
++-------+-------+-----------+------------+---------+
+|  7902 | FORD  | ANALYST   | 1981-12-03 | 38.7896 |
+|  7839 | KING  | PRESIDENT | 1981-11-17 | 38.8333 |
+|  7788 | SCOTT | ANALYST   | 1982-12-09 | 37.7760 |
+|  7782 | CLARK | MANAGER   | 1981-06-09 | 39.2732 |
+|  7698 | BLAKE | MANAGER   | 1981-05-01 | 39.3798 |
+|  7566 | JONES | MANAGER   | 1981-04-02 | 39.4590 |
++-------+-------+-----------+------------+---------+
+6 rows in set (0.00 sec)
+
+MariaDB [employee]> select empno,ename,job,hiredate,datediff(yy,now(),hiredate) exp from emp where empno in ( select mgr from emp);
+ERROR 1582 (42000): Incorrect parameter count in the call to native function 'datediff'
+MariaDB [employee]> select empno,ename,job,hiredate,year(now())-year(hiredate) exp from emp where empno in ( select mgr from emp);
++-------+-------+-----------+------------+------+
+| empno | ename | job       | hiredate   | exp  |
++-------+-------+-----------+------------+------+
+|  7902 | FORD  | ANALYST   | 1981-12-03 |   39 |
+|  7839 | KING  | PRESIDENT | 1981-11-17 |   39 |
+|  7788 | SCOTT | ANALYST   | 1982-12-09 |   38 |
+|  7782 | CLARK | MANAGER   | 1981-06-09 |   39 |
+|  7698 | BLAKE | MANAGER   | 1981-05-01 |   39 |
+|  7566 | JONES | MANAGER   | 1981-04-02 |   39 |
++-------+-------+-----------+------------+------+
+6 rows in set (0.00 sec)
+
+MariaDB [employee]> select empno,ename,sal,year(now())-year(hiredate) exp from mgr=7369;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '7369' at line 1
+MariaDB [employee]> select empno,ename,sal,year(now())-year(hiredate) exp from mgr=7369;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '7369' at line 1
+MariaDB [employee]> select empno,ename,sal,year(now())-year(hiredate) exp from emp where mgr=7369;
+Empty set (0.00 sec)
+
+MariaDB [employee]> select empno,ename,sal,year(now())-year(hiredate) exp from emp where mgr=7839;
++-------+-------+---------+------+
+| empno | ename | sal     | exp  |
++-------+-------+---------+------+
+|  7782 | CLARK | 2450.00 |   39 |
+|  7698 | BLAKE | 2850.00 |   39 |
+|  7566 | JONES | 2975.00 |   39 |
++-------+-------+---------+------+
+3 rows in set (0.00 sec)
+
+MariaDB [employee]> select * from emp where sal < comm;
++-------+--------+----------+------+------------+---------+---------+--------+
+| empno | ename  | job      | mgr  | hiredate   | sal     | comm    | deptno |
++-------+--------+----------+------+------------+---------+---------+--------+
+|  7654 | MARTIN | SALESMAN | 7698 | 1981-09-28 | 1250.00 | 1400.00 |     30 |
++-------+--------+----------+------+------------+---------+---------+--------+
+1 row in set (0.00 sec)
+
+MariaDB [employee]> select * from emp;
++-------+--------+-----------+------+------------+---------+---------+--------+
+| empno | ename  | job       | mgr  | hiredate   | sal     | comm    | deptno |
++-------+--------+-----------+------+------------+---------+---------+--------+
+|  7902 | FORD   | ANALYST   | 7566 | 1981-12-03 | 3000.00 |    NULL |     20 |
+|  7934 | MILLER | CLERK     | 7782 | 1982-01-23 | 1300.00 |    NULL |     10 |
+|  7900 | JAMES  | CLERK     | 7698 | 1981-12-03 |  950.00 |    NULL |     30 |
+|  7876 | ADAMS  | CLERK     | 7788 | 1983-01-12 | 1100.00 |    NULL |     20 |
+|  7844 | TURNER | SALESMAN  | 7698 | 1981-09-08 | 1500.00 |    0.00 |     30 |
+|  7839 | KING   | PRESIDENT | NULL | 1981-11-17 | 5000.00 |    NULL |     10 |
+|  7788 | SCOTT  | ANALYST   | 7566 | 1982-12-09 | 3000.00 |    NULL |     20 |
+|  7782 | CLARK  | MANAGER   | 7839 | 1981-06-09 | 2450.00 |    NULL |     10 |
+|  7698 | BLAKE  | MANAGER   | 7839 | 1981-05-01 | 2850.00 |    NULL |     30 |
+|  7654 | MARTIN | SALESMAN  | 7698 | 1981-09-28 | 1250.00 | 1400.00 |     30 |
+|  7566 | JONES  | MANAGER   | 7839 | 1981-04-02 | 2975.00 |    NULL |     20 |
+|  7521 | WARD   | SALESMAN  | 7698 | 1981-02-22 | 1250.00 |  500.00 |     30 |
+|  7499 | ALLEN  | SALESMAN  | 7698 | 1981-02-20 | 1600.00 |  300.00 |     30 |
+|  7369 | SMITH  | CLERK     | 7902 | 1980-12-17 |  800.00 |    NULL |     20 |
++-------+--------+-----------+------+------------+---------+---------+--------+
+14 rows in set (0.00 sec)
+
+MariaDB [employee]> select * from emp 
+    -> where hiredate > '1980-06-01'
+    -> order by job;
++-------+--------+-----------+------+------------+---------+---------+--------+
+| empno | ename  | job       | mgr  | hiredate   | sal     | comm    | deptno |
++-------+--------+-----------+------+------------+---------+---------+--------+
+|  7902 | FORD   | ANALYST   | 7566 | 1981-12-03 | 3000.00 |    NULL |     20 |
+|  7788 | SCOTT  | ANALYST   | 7566 | 1982-12-09 | 3000.00 |    NULL |     20 |
+|  7369 | SMITH  | CLERK     | 7902 | 1980-12-17 |  800.00 |    NULL |     20 |
+|  7876 | ADAMS  | CLERK     | 7788 | 1983-01-12 | 1100.00 |    NULL |     20 |
+|  7900 | JAMES  | CLERK     | 7698 | 1981-12-03 |  950.00 |    NULL |     30 |
+|  7934 | MILLER | CLERK     | 7782 | 1982-01-23 | 1300.00 |    NULL |     10 |
+|  7782 | CLARK  | MANAGER   | 7839 | 1981-06-09 | 2450.00 |    NULL |     10 |
+|  7698 | BLAKE  | MANAGER   | 7839 | 1981-05-01 | 2850.00 |    NULL |     30 |
+|  7566 | JONES  | MANAGER   | 7839 | 1981-04-02 | 2975.00 |    NULL |     20 |
+|  7839 | KING   | PRESIDENT | NULL | 1981-11-17 | 5000.00 |    NULL |     10 |
+|  7499 | ALLEN  | SALESMAN  | 7698 | 1981-02-20 | 1600.00 |  300.00 |     30 |
+|  7521 | WARD   | SALESMAN  | 7698 | 1981-02-22 | 1250.00 |  500.00 |     30 |
+|  7654 | MARTIN | SALESMAN  | 7698 | 1981-09-28 | 1250.00 | 1400.00 |     30 |
+|  7844 | TURNER | SALESMAN  | 7698 | 1981-09-08 | 1500.00 |    0.00 |     30 |
++-------+--------+-----------+------+------------+---------+---------+--------+
+14 rows in set (0.00 sec)
+
+MariaDB [employee]> select ename,year(now())-year(hiredate) exp where sal/30 > 100;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'where sal/30 > 100' at line 1
+MariaDB [employee]> select ename,year(now())-year(hiredate) exp where (sal/30) > 100;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'where (sal/30) > 100' at line 1
+MariaDB [employee]> select ename,year(now())-year(hiredate) exp where sal>3000;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'where sal>3000' at line 1
+MariaDB [employee]> select ename,year(now())-year(hiredate) exp from emp where (sal/30) > 100;
++-------+------+
+| ename | exp  |
++-------+------+
+| KING  |   39 |
++-------+------+
+1 row in set (0.00 sec)
+
+MariaDB [employee]> select * from emp
+    -> where job in ('CLERK','ANALYST')
+    -> order by job;
++-------+--------+---------+------+------------+---------+------+--------+
+| empno | ename  | job     | mgr  | hiredate   | sal     | comm | deptno |
++-------+--------+---------+------+------------+---------+------+--------+
+|  7902 | FORD   | ANALYST | 7566 | 1981-12-03 | 3000.00 | NULL |     20 |
+|  7788 | SCOTT  | ANALYST | 7566 | 1982-12-09 | 3000.00 | NULL |     20 |
+|  7934 | MILLER | CLERK   | 7782 | 1982-01-23 | 1300.00 | NULL |     10 |
+|  7900 | JAMES  | CLERK   | 7698 | 1981-12-03 |  950.00 | NULL |     30 |
+|  7876 | ADAMS  | CLERK   | 7788 | 1983-01-12 | 1100.00 | NULL |     20 |
+|  7369 | SMITH  | CLERK   | 7902 | 1980-12-17 |  800.00 | NULL |     20 |
++-------+--------+---------+------+------------+---------+------+--------+
+6 rows in set (0.00 sec)
+
+MariaDB [employee]> select * exp from emp where hiredate in (1-MAY-81,3-DEC-81,17-DEC-81,19-JAN-80)
+    -> order by hiredate;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'exp from emp where hiredate in (1-MAY-81,3-DEC-81,17-DEC-81,19-JAN-80)
+order by ' at line 1
+MariaDB [employee]> select * exp from emp where hiredate in ('1981-05-01','1981-12-03','1981-12-17','1981-01-19') order by hiredate;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'exp from emp where hiredate in ('1981-05-01','1981-12-03','1981-12-17','1981-01-' at line 1
+MariaDB [employee]> select *  from emp where hiredate in ('1981-05-01','1981-12-03','1981-12-17','1981-01-19') order by hiredate;
++-------+-------+---------+------+------------+---------+------+--------+
+| empno | ename | job     | mgr  | hiredate   | sal     | comm | deptno |
++-------+-------+---------+------+------------+---------+------+--------+
+|  7698 | BLAKE | MANAGER | 7839 | 1981-05-01 | 2850.00 | NULL |     30 |
+|  7902 | FORD  | ANALYST | 7566 | 1981-12-03 | 3000.00 | NULL |     20 |
+|  7900 | JAMES | CLERK   | 7698 | 1981-12-03 |  950.00 | NULL |     30 |
++-------+-------+---------+------+------------+---------+------+--------+
+3 rows in set (0.00 sec)
+
+MariaDB [employee]> select * from emp where deptno in (10,20);
++-------+--------+-----------+------+------------+---------+------+--------+
+| empno | ename  | job       | mgr  | hiredate   | sal     | comm | deptno |
++-------+--------+-----------+------+------------+---------+------+--------+
+|  7902 | FORD   | ANALYST   | 7566 | 1981-12-03 | 3000.00 | NULL |     20 |
+|  7934 | MILLER | CLERK     | 7782 | 1982-01-23 | 1300.00 | NULL |     10 |
+|  7876 | ADAMS  | CLERK     | 7788 | 1983-01-12 | 1100.00 | NULL |     20 |
+|  7839 | KING   | PRESIDENT | NULL | 1981-11-17 | 5000.00 | NULL |     10 |
+|  7788 | SCOTT  | ANALYST   | 7566 | 1982-12-09 | 3000.00 | NULL |     20 |
+|  7782 | CLARK  | MANAGER   | 7839 | 1981-06-09 | 2450.00 | NULL |     10 |
+|  7566 | JONES  | MANAGER   | 7839 | 1981-04-02 | 2975.00 | NULL |     20 |
+|  7369 | SMITH  | CLERK     | 7902 | 1980-12-17 |  800.00 | NULL |     20 |
++-------+--------+-----------+------+------------+---------+------+--------+
+8 rows in set (0.00 sec)
+
+MariaDB [employee]> select * from emp where year(hiredate)=1981;
++-------+--------+-----------+------+------------+---------+---------+--------+
+| empno | ename  | job       | mgr  | hiredate   | sal     | comm    | deptno |
++-------+--------+-----------+------+------------+---------+---------+--------+
+|  7902 | FORD   | ANALYST   | 7566 | 1981-12-03 | 3000.00 |    NULL |     20 |
+|  7900 | JAMES  | CLERK     | 7698 | 1981-12-03 |  950.00 |    NULL |     30 |
+|  7844 | TURNER | SALESMAN  | 7698 | 1981-09-08 | 1500.00 |    0.00 |     30 |
+|  7839 | KING   | PRESIDENT | NULL | 1981-11-17 | 5000.00 |    NULL |     10 |
+|  7782 | CLARK  | MANAGER   | 7839 | 1981-06-09 | 2450.00 |    NULL |     10 |
+|  7698 | BLAKE  | MANAGER   | 7839 | 1981-05-01 | 2850.00 |    NULL |     30 |
+|  7654 | MARTIN | SALESMAN  | 7698 | 1981-09-28 | 1250.00 | 1400.00 |     30 |
+|  7566 | JONES  | MANAGER   | 7839 | 1981-04-02 | 2975.00 |    NULL |     20 |
+|  7521 | WARD   | SALESMAN  | 7698 | 1981-02-22 | 1250.00 |  500.00 |     30 |
+|  7499 | ALLEN  | SALESMAN  | 7698 | 1981-02-20 | 1600.00 |  300.00 |     30 |
++-------+--------+-----------+------+------------+---------+---------+--------+
+10 rows in set (0.00 sec)
+
+MariaDB [employee]> select * from emp where hiredate between '1980-08-01' and '1980-08-31';
+Empty set (0.00 sec)
+
+MariaDB [employee]> select * from emp where sal*12 between 22000 and 45000;
++-------+-------+---------+------+------------+---------+------+--------+
+| empno | ename | job     | mgr  | hiredate   | sal     | comm | deptno |
++-------+-------+---------+------+------------+---------+------+--------+
+|  7902 | FORD  | ANALYST | 7566 | 1981-12-03 | 3000.00 | NULL |     20 |
+|  7788 | SCOTT | ANALYST | 7566 | 1982-12-09 | 3000.00 | NULL |     20 |
+|  7782 | CLARK | MANAGER | 7839 | 1981-06-09 | 2450.00 | NULL |     10 |
+|  7698 | BLAKE | MANAGER | 7839 | 1981-05-01 | 2850.00 | NULL |     30 |
+|  7566 | JONES | MANAGER | 7839 | 1981-04-02 | 2975.00 | NULL |     20 |
++-------+-------+---------+------+------------+---------+------+--------+
+5 rows in set (0.00 sec)
+
+MariaDB [employee]> select ename from emp 
+    -> where ename like '.....';
+Empty set (0.00 sec)
+
+MariaDB [employee]> select ename from emp  where ename like '%';
++--------+
+| ename  |
++--------+
+| FORD   |
+| MILLER |
+| JAMES  |
+| ADAMS  |
+| TURNER |
+| KING   |
+| SCOTT  |
+| CLARK  |
+| BLAKE  |
+| MARTIN |
+| JONES  |
+| WARD   |
+| ALLEN  |
+| SMITH  |
++--------+
+14 rows in set (0.01 sec)
+
+MariaDB [employee]> select ename from emp  where ename like 's%';
++-------+
+| ename |
++-------+
+| SCOTT |
+| SMITH |
++-------+
+2 rows in set (0.00 sec)
+
+MariaDB [employee]> select ename from emp  where ename like len(ename)=5;
+ERROR 1305 (42000): FUNCTION employee.len does not exist
+MariaDB [employee]> select ename from emp  where ename like length(ename)=5;
+Empty set (0.01 sec)
+
+MariaDB [employee]> select length(ename) from emp;
++---------------+
+| length(ename) |
++---------------+
+|             4 |
+|             6 |
+|             5 |
+|             5 |
+|             6 |
+|             4 |
+|             5 |
+|             5 |
+|             5 |
+|             6 |
+|             5 |
+|             4 |
+|             5 |
+|             5 |
++---------------+
+14 rows in set (0.00 sec)
+
+MariaDB [employee]> select ename from emp  where  length(ename)=5;
++-------+
+| ename |
++-------+
+| JAMES |
+| ADAMS |
+| SCOTT |
+| CLARK |
+| BLAKE |
+| JONES |
+| ALLEN |
+| SMITH |
++-------+
+8 rows in set (0.00 sec)
+
+MariaDB [employee]> select ename from emp  where ename like '_____';
++-------+
+| ename |
++-------+
+| JAMES |
+| ADAMS |
+| SCOTT |
+| CLARK |
+| BLAKE |
+| JONES |
+| ALLEN |
+| SMITH |
++-------+
+8 rows in set (0.00 sec)
+
+MariaDB [employee]> select ename from emp  where ename like 'S____';
++-------+
+| ename |
++-------+
+| SCOTT |
+| SMITH |
++-------+
+2 rows in set (0.00 sec)
+
+MariaDB [employee]> select ename from emp  where ename like '__r_';
++-------+
+| ename |
++-------+
+| FORD  |
+| WARD  |
++-------+
+2 rows in set (0.00 sec)
+
+MariaDB [employee]> select ename from emp  where ename like 'S___h';
++-------+
+| ename |
++-------+
+| SMITH |
++-------+
+1 row in set (0.00 sec)
+
+MariaDB [employee]> select ename from emp  where month(hiredate)=1;
++--------+
+| ename  |
++--------+
+| MILLER |
+| ADAMS  |
++--------+
+2 rows in set (0.01 sec)
+
+MariaDB [employee]> select ename from emp  where month(hiredate,mmm)=1;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'mmm)=1' at line 1
+MariaDB [employee]> select ename from emp  where month(mmm,hiredate)=1;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'hiredate)=1' at line 1
+MariaDB [employee]> select ename from emp  where month(mmm,hiredate);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'hiredate)' at line 1
+MariaDB [employee]> select month(hiredate);
+ERROR 1054 (42S22): Unknown column 'hiredate' in 'field list'
+MariaDB [employee]> select month(hiredate) from emp;
++-----------------+
+| month(hiredate) |
++-----------------+
+|              12 |
+|               1 |
+|              12 |
+|               1 |
+|               9 |
+|              11 |
+|              12 |
+|               6 |
+|               5 |
+|               9 |
+|               4 |
+|               2 |
+|               2 |
+|              12 |
++-----------------+
+14 rows in set (0.00 sec)
+
+MariaDB [employee]> select month(mmm,hiredate) from emp;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'hiredate) from emp' at line 1
+MariaDB [employee]> select to_char(hiredate) from emp;
+ERROR 1305 (42000): FUNCTION employee.to_char does not exist
+MariaDB [employee]> select date_format(hiredate,'%MMMM') from emp;
++-------------------------------+
+| date_format(hiredate,'%MMMM') |
++-------------------------------+
+| DecemberMMM                   |
+| JanuaryMMM                    |
+| DecemberMMM                   |
+| JanuaryMMM                    |
+| SeptemberMMM                  |
+| NovemberMMM                   |
+| DecemberMMM                   |
+| JuneMMM                       |
+| MayMMM                        |
+| SeptemberMMM                  |
+| AprilMMM                      |
+| FebruaryMMM                   |
+| FebruaryMMM                   |
+| DecemberMMM                   |
++-------------------------------+
+14 rows in set (0.02 sec)
+
+MariaDB [employee]> select date_format(hiredate,'%MM') from emp;
++-----------------------------+
+| date_format(hiredate,'%MM') |
++-----------------------------+
+| DecemberM                   |
+| JanuaryM                    |
+| DecemberM                   |
+| JanuaryM                    |
+| SeptemberM                  |
+| NovemberM                   |
+| DecemberM                   |
+| JuneM                       |
+| MayM                        |
+| SeptemberM                  |
+| AprilM                      |
+| FebruaryM                   |
+| FebruaryM                   |
+| DecemberM                   |
++-----------------------------+
+14 rows in set (0.00 sec)
+
+MariaDB [employee]> select date_format(hiredate,'M') from emp;
++---------------------------+
+| date_format(hiredate,'M') |
++---------------------------+
+| M                         |
+| M                         |
+| M                         |
+| M                         |
+| M                         |
+| M                         |
+| M                         |
+| M                         |
+| M                         |
+| M                         |
+| M                         |
+| M                         |
+| M                         |
+| M                         |
++---------------------------+
+14 rows in set (0.00 sec)
+
+MariaDB [employee]> select date_format(hiredate,'%M') from emp;
++----------------------------+
+| date_format(hiredate,'%M') |
++----------------------------+
+| December                   |
+| January                    |
+| December                   |
+| January                    |
+| September                  |
+| November                   |
+| December                   |
+| June                       |
+| May                        |
+| September                  |
+| April                      |
+| February                   |
+| February                   |
+| December                   |
++----------------------------+
+14 rows in set (0.00 sec)
+
+MariaDB [employee]> select date_format(hiredate,'%m') from emp;
++----------------------------+
+| date_format(hiredate,'%m') |
++----------------------------+
+| 12                         |
+| 01                         |
+| 12                         |
+| 01                         |
+| 09                         |
+| 11                         |
+| 12                         |
+| 06                         |
+| 05                         |
+| 09                         |
+| 04                         |
+| 02                         |
+| 02                         |
+| 12                         |
++----------------------------+
+14 rows in set (0.01 sec)
+
+MariaDB [employee]> select date_format(hiredate,'%mmm') from emp;
++------------------------------+
+| date_format(hiredate,'%mmm') |
++------------------------------+
+| 12mm                         |
+| 01mm                         |
+| 12mm                         |
+| 01mm                         |
+| 09mm                         |
+| 11mm                         |
+| 12mm                         |
+| 06mm                         |
+| 05mm                         |
+| 09mm                         |
+| 04mm                         |
+| 02mm                         |
+| 02mm                         |
+| 12mm                         |
++------------------------------+
+14 rows in set (0.01 sec)
+
+MariaDB [employee]> select date_format(hiredate,'%mo') from emp;
++-----------------------------+
+| date_format(hiredate,'%mo') |
++-----------------------------+
+| 12o                         |
+| 01o                         |
+| 12o                         |
+| 01o                         |
+| 09o                         |
+| 11o                         |
+| 12o                         |
+| 06o                         |
+| 05o                         |
+| 09o                         |
+| 04o                         |
+| 02o                         |
+| 02o                         |
+| 12o                         |
++-----------------------------+
+14 rows in set (0.00 sec)
+
+MariaDB [employee]> select date_format(hiredate,'DD-MM-YYY') from emp;
++-----------------------------------+
+| date_format(hiredate,'DD-MM-YYY') |
++-----------------------------------+
+| DD-MM-YYY                         |
+| DD-MM-YYY                         |
+| DD-MM-YYY                         |
+| DD-MM-YYY                         |
+| DD-MM-YYY                         |
+| DD-MM-YYY                         |
+| DD-MM-YYY                         |
+| DD-MM-YYY                         |
+| DD-MM-YYY                         |
+| DD-MM-YYY                         |
+| DD-MM-YYY                         |
+| DD-MM-YYY                         |
+| DD-MM-YYY                         |
+| DD-MM-YYY                         |
++-----------------------------------+
+14 rows in set (0.00 sec)
+
+MariaDB [employee]> select date_format(hiredate,'%DD-MM-YYY') from emp;
++------------------------------------+
+| date_format(hiredate,'%DD-MM-YYY') |
++------------------------------------+
+| 3rdD-MM-YYY                        |
+| 23rdD-MM-YYY                       |
+| 3rdD-MM-YYY                        |
+| 12thD-MM-YYY                       |
+| 8thD-MM-YYY                        |
+| 17thD-MM-YYY                       |
+| 9thD-MM-YYY                        |
+| 9thD-MM-YYY                        |
+| 1stD-MM-YYY                        |
+| 28thD-MM-YYY                       |
+| 2ndD-MM-YYY                        |
+| 22ndD-MM-YYY                       |
+| 20thD-MM-YYY                       |
+| 17thD-MM-YYY                       |
++------------------------------------+
+14 rows in set (0.00 sec)
+
+MariaDB [employee]> select ename from emp where date_format(hiredate,'%M') like '_a%;
+    '> 
+    '> ;
+    '> a
+    '> wszwsz;
+    '> '
+    -> ;
+Empty set (0.00 sec)
+
+MariaDB [employee]> select ename from emp where date_format(hiredate,'%M') like '_a%';
++--------+
+| ename  |
++--------+
+| MILLER |
+| ADAMS  |
+| BLAKE  |
++--------+
+3 rows in set (0.00 sec)
+
+MariaDB [employee]> select * from emp where len(sal)=4 and sal%10=0;
+ERROR 1305 (42000): FUNCTION employee.len does not exist
+MariaDB [employee]> select * from emp where len(str(sal))=4 and sal%10=0;
+ERROR 1305 (42000): FUNCTION employee.len does not exist
+MariaDB [employee]> select * from emp where sal in between 1000 and 9999 and sal%10=0;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'between 1000 and 9999 and sal%10=0' at line 1
+MariaDB [employee]> select * from emp where sal between 1000 and 9999 and sal%10=0;
++-------+--------+-----------+------+------------+---------+---------+--------+
+| empno | ename  | job       | mgr  | hiredate   | sal     | comm    | deptno |
++-------+--------+-----------+------+------------+---------+---------+--------+
+|  7902 | FORD   | ANALYST   | 7566 | 1981-12-03 | 3000.00 |    NULL |     20 |
+|  7934 | MILLER | CLERK     | 7782 | 1982-01-23 | 1300.00 |    NULL |     10 |
+|  7876 | ADAMS  | CLERK     | 7788 | 1983-01-12 | 1100.00 |    NULL |     20 |
+|  7844 | TURNER | SALESMAN  | 7698 | 1981-09-08 | 1500.00 |    0.00 |     30 |
+|  7839 | KING   | PRESIDENT | NULL | 1981-11-17 | 5000.00 |    NULL |     10 |
+|  7788 | SCOTT  | ANALYST   | 7566 | 1982-12-09 | 3000.00 |    NULL |     20 |
+|  7782 | CLARK  | MANAGER   | 7839 | 1981-06-09 | 2450.00 |    NULL |     10 |
+|  7698 | BLAKE  | MANAGER   | 7839 | 1981-05-01 | 2850.00 |    NULL |     30 |
+|  7654 | MARTIN | SALESMAN  | 7698 | 1981-09-28 | 1250.00 | 1400.00 |     30 |
+|  7521 | WARD   | SALESMAN  | 7698 | 1981-02-22 | 1250.00 |  500.00 |     30 |
+|  7499 | ALLEN  | SALESMAN  | 7698 | 1981-02-20 | 1600.00 |  300.00 |     30 |
++-------+--------+-----------+------+------------+---------+---------+--------+
+11 rows in set (0.01 sec)
+
+MariaDB [employee]> select ename from emp  where ename like '%ll%';
++--------+
+| ename  |
++--------+
+| MILLER |
+| ALLEN  |
++--------+
+2 rows in set (0.00 sec)
+
+MariaDB [employee]> select * from emp 
+    -> minus 
+    -> select * from emp where empno
+    -> in 
+    -> (
+    -> select mgr from emp)
+    -> minus 
+    -> select * from emp
+    -> where job='president';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'select * from emp where empno
+in 
+(
+select mgr from emp)
+minus 
+select * from em' at line 3
+MariaDB [employee]> select * from emp where empno
+    -> minus 
+    -> select * from emp
+    -> where job='president';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'minus 
+select * from emp
+where job='president'' at line 2
+MariaDB [employee]> select * from emp
+    -> where job='president';
++-------+-------+-----------+------+------------+---------+------+--------+
+| empno | ename | job       | mgr  | hiredate   | sal     | comm | deptno |
++-------+-------+-----------+------+------------+---------+------+--------+
+|  7839 | KING  | PRESIDENT | NULL | 1981-11-17 | 5000.00 | NULL |     10 |
++-------+-------+-----------+------+------------+---------+------+--------+
+1 row in set (0.00 sec)
+
+MariaDB [employee]> select * from emp;
++-------+--------+-----------+------+------------+---------+---------+--------+
+| empno | ename  | job       | mgr  | hiredate   | sal     | comm    | deptno |
++-------+--------+-----------+------+------------+---------+---------+--------+
+|  7902 | FORD   | ANALYST   | 7566 | 1981-12-03 | 3000.00 |    NULL |     20 |
+|  7934 | MILLER | CLERK     | 7782 | 1982-01-23 | 1300.00 |    NULL |     10 |
+|  7900 | JAMES  | CLERK     | 7698 | 1981-12-03 |  950.00 |    NULL |     30 |
+|  7876 | ADAMS  | CLERK     | 7788 | 1983-01-12 | 1100.00 |    NULL |     20 |
+|  7844 | TURNER | SALESMAN  | 7698 | 1981-09-08 | 1500.00 |    0.00 |     30 |
+|  7839 | KING   | PRESIDENT | NULL | 1981-11-17 | 5000.00 |    NULL |     10 |
+|  7788 | SCOTT  | ANALYST   | 7566 | 1982-12-09 | 3000.00 |    NULL |     20 |
+|  7782 | CLARK  | MANAGER   | 7839 | 1981-06-09 | 2450.00 |    NULL |     10 |
+|  7698 | BLAKE  | MANAGER   | 7839 | 1981-05-01 | 2850.00 |    NULL |     30 |
+|  7654 | MARTIN | SALESMAN  | 7698 | 1981-09-28 | 1250.00 | 1400.00 |     30 |
+|  7566 | JONES  | MANAGER   | 7839 | 1981-04-02 | 2975.00 |    NULL |     20 |
+|  7521 | WARD   | SALESMAN  | 7698 | 1981-02-22 | 1250.00 |  500.00 |     30 |
+|  7499 | ALLEN  | SALESMAN  | 7698 | 1981-02-20 | 1600.00 |  300.00 |     30 |
+|  7369 | SMITH  | CLERK     | 7902 | 1980-12-17 |  800.00 |    NULL |     20 |
++-------+--------+-----------+------+------------+---------+---------+--------+
+14 rows in set (0.00 sec)
+
+
